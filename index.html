@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="table-container">
+        <h1>Transfer Flowsheet for Computer Engineering BS
+            (Effective AY 2020-21)</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th class="flowsheet-header-cell" colspan="2">Freshman</th>
+                    <th class="flowsheet-header-cell" colspan="2">Sophomore</th>
+                    <th class="flowsheet-header-cell" colspan="4">Junior</th>
+                    <th class="flowsheet-header-cell" colspan="2">Senior</th>
+                </tr>
+                <tr>
+                    <th colspan="1" class="flowsheet-header-cell">Fall</th>
+                    <th colspan="1" class="flowsheet-header-cell">Spring</th>
+                    <th colspan="1" class="flowsheet-header-cell">Fall</th>
+                    <th colspan="1" class="flowsheet-header-cell">Spring</th>
+                    <th colspan="1" class="flowsheet-header-cell">Fall</th>
+                    <th colspan="1" class="flowsheet-header-cell">Spring</th>
+                    <th colspan="1" class="flowsheet-header-cell">Fall</th>
+                    <th colspan="1" class="flowsheet-header-cell">Spring</th>
+                    <th colspan="1" class="flowsheet-header-cell">Fall</th>
+                    <th colspan="1" class="flowsheet-header-cell">Spring</th>
+                </tr>
+            </thead>
+            <tbody id="table-body-flowsheet">
+            </tbody>
+        </table>
+        <table id="credit-table">
+            <thead>
+                <tr id="credit-table-row">
+                </tr>
+            </thead>
+            <tbody id="table-body-flowsheet">
+            </tbody>
+        </table>
+    </div>
+    <div id="flowsheet-descr">
+        <span class="descr-span" id="desc-current">Current subject description <i class="desc-icon"><img src="./assets/images/info-circle.svg"></i></span>
+        <span class="descr-span" id="desc-req">Requirements for the current subject <i class="desc-icon small-desc-icon no-invert-desc-icon"><img src="./assets/images/arrow-left.svg"></i></span>
+        <span class="descr-span" id="desc-dependent">Subjects that are open after this subject is complete <i class="desc-icon small-desc-icon"><img src="./assets/images/arrow-right.svg"></i></span>
+        <span class="descr-span" id="desc-training">Training</span>
+        <span class="descr-span" id="desc-optional">Optional subjects, you can take only one of them</span>
+    </div>
+    <script src="util.js"></script>
+    <script src="MirectedGraph.js"></script>
+    <script src="tableController.js"></script>    
+    <script src="cellController.js"></script>
+    <script src="index.js"></script>
+    <script src="https://example.com/fontawesome/v5.15.4/js/all.js"></script>
+</body>
+</html>

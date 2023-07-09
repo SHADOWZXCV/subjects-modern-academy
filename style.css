@@ -1,0 +1,148 @@
+#table-container, #flowsheet-descr {
+    width: 90%;
+    margin: auto;
+    font-size: small;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+table {
+    table-layout: fixed;
+}
+
+
+.cell {
+    position: relative;
+    width: 500em;
+    padding: 5px;
+}
+
+.cell:not([data-is-empty]):hover {
+    cursor: pointer;
+}
+
+.inner-cell-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cell-text {
+    width: 90%;
+    font-size: 10px;
+}
+
+.left-cell-icon, .right-cell-icon, .about-cell-icon {
+    visibility: hidden;
+    position: absolute;
+    top: 40%;
+    right: 5%;
+}
+
+.about-cell-icon {
+    top: 15%;
+}
+
+.cell[data-dependent] .right-cell-icon, .cell[data-current] .about-cell-icon {
+    filter: invert(1);
+}
+
+.cell[data-required] .left-cell-icon, .cell[data-dependent] .right-cell-icon, .cell[data-current] .about-cell-icon {
+    visibility: visible;
+}
+
+.flowsheet-header-cell {
+    color: white;
+    background: rgb(88, 88, 88);
+}
+
+#credit-table {
+    margin: 15px 0;
+}
+
+.credit-cell {
+    color: rgb(88, 88, 88);
+    padding: 10px;
+    border: dashed 3px rgb(88, 88, 88);
+    border-left: none;
+    border-right: none;
+}
+
+.cell[data-subject-id] {
+    background: #cfcfcf;
+}
+
+
+.cell[data-current='true']:not([data-is-training]), #desc-current {
+    background: #005bbb;
+    color: white;
+}
+
+.cell[data-current='true'][data-is-training], #desc-training {
+    background: #6d12b7;
+    color: white;
+}
+
+.cell[data-dependent='true'], #desc-dependent {
+    background: #002F56;
+    color: white;
+}
+
+.cell[data-required='true'], #desc-req {
+    background: #FFC72C;
+    color: black;
+}
+
+.cell[data-is-optional-sibling='true'], #desc-optional {
+    outline: dashed 3px #005bbb;
+}
+
+.cell[data-optional-id]:not([data-is-optional-sibling='true']):not([data-dependent='true']):not([data-required='true']):not([data-current='true']) {
+    background: #b5b5b5;
+}
+
+.cell[data-is-training]:not([data-is-optional-sibling='true']):not([data-dependent='true']):not([data-required='true']):not([data-current='true'])  {
+    background: #b5b5b53c;
+    border: solid 2px #d3d3d3;
+}
+
+#credit-table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+#flowsheet-descr {
+    display: flex;
+}
+
+.descr-span {
+    display: flex;
+    align-items: center;
+    background:#b5b5b53c;
+    width: fit-content;
+    margin: 5px;
+    padding: 15px;
+}
+
+.desc-icon {
+    width: 15px;
+    margin: 0 10px;
+    padding-top: 5px;
+    filter: invert(1);
+}
+
+.small-desc-icon {
+    width: 10px !important;
+}
+
+.no-invert-desc-icon {
+    filter: invert(0);
+}
+
+#desc-optional {
+    background: #989898;
+}
+
+.cell-subjectCode {
+    margin-bottom: 10px;
+}
