@@ -13,7 +13,7 @@ function renderVertex(prevCellPtr, currentCellPtr, vertex, isTrainingSem) {
     let cell = document.getElementById(colId)
     
     if(!row)
-    row = createSemestersRow(rowId)
+        row = createSemestersRow(rowId)
     if(!cell)
         cell = createCell(row, colId, vertex)
 
@@ -57,7 +57,10 @@ function createCell(row, colId, vertex) {
     const div = document.createElement('div')
     const outerDiv = document.createElement('div')
 
-    div.innerHTML = !vertex ? ' ' : `<b class="cell-subjectCode">${subjectId}</b><br>${subjectName}`
+    div.innerHTML = !vertex ? ' ' : `
+    <b class="cell-subjectCode">${subjectId}</b><br>
+    <p>${subjectName}</p>
+    `
     div.className = 'cell-text'
     cell.className = 'cell'
     cell.id = colId
@@ -141,6 +144,7 @@ function attachCellActions(vertex, cell) {
 
             // detects a bad connection, and wrong ids
             if(!elem){
+                console.log(`There is no such subject with ID: ${siblingVertex.data.id}!`);
                 break
             }
 

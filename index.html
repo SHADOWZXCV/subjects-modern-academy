@@ -7,9 +7,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="table-container">
-        <h1>Transfer Flowsheet for Computer Engineering BS
+    <header>
+        <h1 id="header-title">Transfer Flowsheet for Electrical Engineering Departments BS
             (Effective AY 2020-21)</h1>
+        <div id="spec-details">
+            <div id="header-select-container">
+                <p>Choose your field: </p>
+                <select onchange="renderTable()" id="header-select-main">
+                    <option selected disabled>Choose your specialization</option>
+                    <option value="Communication">Communication Engineering</option>
+                    <option value="Computer">Computer Engineering</option>
+                </select>
+            </div>
+            <p id="chosen-semester-heading"></p>
+        </div>
+    </header>
+    <main id="table-container">
         <table>
             <thead>
                 <tr>
@@ -34,22 +47,41 @@
             <tbody id="table-body-flowsheet">
             </tbody>
         </table>
-        <table id="credit-table">
+        <h2>Total credit hours for each semester</h2>
+        <table id="credit-table" cellspacing="0">
             <thead>
-                <tr id="credit-table-row">
+                <tr id="credit-table-summary">
+                    <th colspan="2" class="credit-header-cell">year 1</th>
+                    <th colspan="2" class="credit-header-cell">year 2</th>
+                    <th colspan="2" class="credit-header-cell">year 3</th>
+                    <th colspan="2" class="credit-header-cell">year 4</th>
+                    <th colspan="2" class="credit-header-cell">year 5</th>
+
                 </tr>
             </thead>
-            <tbody id="table-body-flowsheet">
+            <tbody>
+                <tr id="credit-table-row">
+                </tr>
             </tbody>
         </table>
-    </div>
+    </main>
+    <br>
+    <hr>
+    <br>
+
     <div id="flowsheet-descr">
+        <h3>What colors represent:</h3>
         <span class="descr-span" id="desc-current">Current subject description <i class="desc-icon"><img src="./assets/images/info-circle.svg"></i></span>
         <span class="descr-span" id="desc-req">Requirements for the current subject <i class="desc-icon small-desc-icon no-invert-desc-icon"><img src="./assets/images/arrow-left.svg"></i></span>
         <span class="descr-span" id="desc-dependent">Subjects that are open after this subject is complete <i class="desc-icon small-desc-icon"><img src="./assets/images/arrow-right.svg"></i></span>
         <span class="descr-span" id="desc-training">Training</span>
         <span class="descr-span" id="desc-optional">Optional subjects, you can take only one of them</span>
     </div>
+    <br>
+    <hr>
+    <footer>
+        <p>Made with ❤️ by Ezzeldin Husen</p>
+    </footer>
     <script src="util.js"></script>
     <script src="MirectedGraph.js"></script>
     <script src="tableController.js"></script>    

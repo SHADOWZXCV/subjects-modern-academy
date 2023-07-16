@@ -1,15 +1,17 @@
 const TRAINING = 1
 
 function initTable(subjects) {
-    const creditHours = []
     // A undirected graph is essential for determining what requirements are 
     //for a subject, and what the subject can unlock. 
     const graph = new MirectedGraph()
 
-    subjects.map(semester => {
-            initGraph(graph, semester)
-        }
-    )
+    // reset the table
+    const tableBody = document.getElementById('table-body-flowsheet')
+    const tableCreditRow = document.getElementById('credit-table-row')
+    tableBody.innerHTML = ''
+    tableCreditRow.innerHTML = ''
+
+    subjects.map(semester => initGraph(graph, semester))
     /*
     *  These pointers point to current cell in table that needs to be filled!
     *  
