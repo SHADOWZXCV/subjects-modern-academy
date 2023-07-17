@@ -8,18 +8,27 @@
 </head>
 <body>
     <header>
-        <h1 id="header-title">Transfer Flowsheet for Electrical Engineering Departments BS
-            (Effective AY 2020-21)</h1>
-        <div id="spec-details">
-            <div id="header-select-container">
-                <p>Choose your field: </p>
-                <select onchange="renderTable()" id="header-select-main">
+            <div id="header-main">
+                <h1 id="header-title">Transfer Flowsheet for Electrical Engineering Departments BS
+                    (Effective AY 2020-21)</h1>
+            </div>
+            <div id="spec-details">
+                <div id="table-status">
+                    <form id="search-bar">
+                        <label for="search-entry">Search by code:</label>
+                        <input type="text" class="header-input" name="search-entry" placeholder="Search by subject code..." />
+                    </form>
+                    <form id="toggle-hold-form">
+                        <input type="checkbox" name="search-hold"/>
+                        <label for="hold">Click to Hold highlighted subjects</label>
+                    </form>
+                </div>
+                <select onchange="renderTable()" class="header-input" id="header-select-main">
                     <option selected disabled>Choose your specialization</option>
                     <option value="Communication">Communication Engineering</option>
                     <option value="Computer">Computer Engineering</option>
                 </select>
-            </div>
-            <p id="chosen-semester-heading"></p>
+                <p id="chosen-semester-heading"></p>
         </div>
     </header>
     <main id="table-container">

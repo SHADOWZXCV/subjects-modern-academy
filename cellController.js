@@ -124,48 +124,81 @@ function renderIcons(cell) {
     return div
 }
 
+function resetHighlightedCells() {
+    const current = document.querySelector('[data-current]')
+    const dependent = document.querySelectorAll('[data-dependent]')
+    const required = document.querySelectorAll('[data-required]')
+
+    if(!current)
+        return
+
+    current.removeAttribute('data-current');
+    current.removeAttribute('data-is-Held');
+    [...dependent].map(elem => elem.removeAttribute('data-dependent'));
+    [...required].map(elem => elem.removeAttribute('data-required'))
+
+    const optionalSet = document.querySelectorAll(`[data-is-optional-sibling]`);
+    [...optionalSet].forEach(element => {
+        element.dataset.isOptionalSibling = false
+    });
+}
+
+function highlightCell(cell, vertex, optionalId) {
+    const isAnythingHeld = document.querySelector('[data-is-held]')
+    const isHeldEnabled = isHeld()
+    let siblingVertex = vertex.vertex.next
+    let dirWeight = vertex.vertex.dirWeight
+
+
+    // hold the state of the table if there is a held element
+    if(cell.dataset.current || (isAnythingHeld && isHeldEnabled))
+        return
+
+    if(isAnythingHeld)
+        isAnythingHeld.removeAttribute('data-is-held')
+
+    resetHighlightedCells()
+
+    cell.dataset.current = true
+
+    // check for requirements and dependencies
+    while(siblingVertex) {
+        const elem = document.querySelector(`[data-subject-id="${siblingVertex.data.id}"]`)
+
+        // detects a bad graph connection, and wrong ids
+        if(!elem){
+            console.log(`There is no such subject with ID: ${siblingVertex.data.id}!`);
+            break
+        }
+
+        if(dirWeight === DEPENDENT)
+            elem.dataset.required = true
+        else if(dirWeight === REQUIRED)
+            elem.dataset.dependent = true            
+
+
+        dirWeight = siblingVertex.dirWeight
+        siblingVertex = siblingVertex.next
+    }
+
+    siblingVertex = vertex
+    // check for optional sets
+
+    if(optionalId) {
+        const optionalSet = document.querySelectorAll(`[data-optional-id="${optionalId}"]`);
+        [...optionalSet].forEach(element => {
+            element.dataset.isOptionalSibling = true
+        });
+    }
+}
+
 function attachCellActions(vertex, cell) {
     // add necessary data for hover action
     const { vertex: { data: { id }}, optionalId } = vertex
 
     cell.dataset.subjectId = id
     cell.addEventListener('mouseenter', e => {
-        let siblingVertex = vertex.vertex.next
-        let dirWeight = vertex.vertex.dirWeight
-
-        if(e.target.dataset.current)
-            return
-
-        e.target.dataset.current = true
-
-        // check for requirements and dependencies
-        while(siblingVertex) {
-            const elem = document.querySelector(`[data-subject-id="${siblingVertex.data.id}"]`)
-
-            // detects a bad connection, and wrong ids
-            if(!elem){
-                console.log(`There is no such subject with ID: ${siblingVertex.data.id}!`);
-                break
-            }
-
-            if(dirWeight === DEPENDENT)
-                elem.dataset.required = true
-            else if(dirWeight === REQUIRED)
-                elem.dataset.dependent = true            
-
-            dirWeight = siblingVertex.dirWeight
-            siblingVertex = siblingVertex.next
-        }
-
-        siblingVertex = vertex
-        // check for optional sets
-    
-        if(optionalId) {
-            const optionalSet = document.querySelectorAll(`[data-optional-id="${optionalId}"]`);
-            [...optionalSet].forEach(element => {
-                element.dataset.isOptionalSibling = true
-            });
-        }
+        highlightCell(e.target, vertex, optionalId)
     })
 
 
@@ -173,7 +206,7 @@ function attachCellActions(vertex, cell) {
         let siblingVertex = vertex.vertex.next
         let dirWeight = vertex.vertex.dirWeight
 
-        if(!e.target.dataset.current)
+        if(!e.target.dataset.current || cell.dataset.isHeld)
             return
 
         e.target.removeAttribute('data-current')
@@ -200,4 +233,20 @@ function attachCellActions(vertex, cell) {
             });
         }
     })
+}
+
+function holdCells() {
+    const current = document.querySelector('[data-current]')
+
+    if(!current)
+        return
+
+    current.dataset.isHeld = true
+}
+
+function isHeld() {
+    const toggleTableState = document.getElementById('toggle-hold-form')
+    const isHeld = new FormData(toggleTableState).get('search-hold')
+
+    return isHeld
 }

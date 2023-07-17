@@ -12,6 +12,11 @@ function initTable(subjects) {
     tableCreditRow.innerHTML = ''
 
     subjects.map(semester => initGraph(graph, semester))
+
+    // initialize the search functionality
+    const searchForm = document.getElementsByName('search-entry')[0]
+    searchForm.addEventListener('keyup', e => highlightCellByCode(graph))
+
     /*
     *  These pointers point to current cell in table that needs to be filled!
     *  

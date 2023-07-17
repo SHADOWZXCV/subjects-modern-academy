@@ -21,7 +21,20 @@ class MirectedGraph {
     }
 
     search(id) {
-        const vertex = this.adjacencyList[id]
+        try {
+            const vertex = this.adjacencyList[id]
+    
+            return {
+                vertex,
+                optionalId: vertex.data.optionalSetId || false
+            }            
+        } catch (error) {
+            return false
+        }
+    }
+
+    static search(graph, id) {
+        const vertex = graph.adjacencyList[id]
 
         return {
             vertex,
