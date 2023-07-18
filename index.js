@@ -51,7 +51,12 @@ function highlightCellByCode(graph) {
         return false
     }
 
+    
     highlightCell(cell, vertex, cell.dataset.optionalId)
     
+    // Holds cell if a cell is found and the hold checkbox is checked
+    if(isHeld())
+        holdCells()
+
     return false
 }

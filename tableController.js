@@ -17,6 +17,9 @@ function initTable(subjects) {
     const searchForm = document.getElementsByName('search-entry')[0]
     searchForm.addEventListener('keyup', e => highlightCellByCode(graph))
 
+    // get value of maximum table rows
+    const maxRows = getMaxTableRowLength(subjects)
+
     /*
     *  These pointers point to current cell in table that needs to be filled!
     *  
@@ -30,7 +33,7 @@ function initTable(subjects) {
     currentRowPtr = 1,
     semestersCreditHours = []
 
-    // column-row from u-graph loader, loads the cells for each row instead of row after row
+    // column-row from a mirected-graph loader, loads the cells for each row instead of row after row
     subjects.forEach((semester) => {
         /*
          * isTrainingSem: used to add spaces ONLY in 2 cases:
@@ -70,10 +73,18 @@ function initTable(subjects) {
 
         })
 
-        // render empty spaces ONLY after the summer courses hsa been loaded as a part
+        // render empty spaces ONLY after the summer courses has been loaded as a part
         // of the 2nd semester.
         if(!isTrainingSem){
-            for (let index = currentCellPtr; index < 10; index++) 
+            /*
+             * Description & importance of maxRows:
+             * The loop times is directly correspondent to the maximum number of subjects in all of the columns..
+             * as it is responsible for adding empty cells to each row, aligning the table's cells properly.
+             * if not changed and max has changed, the subjects which are more than the max number will not have
+             * the right offset, and will look off-table.
+             * 
+             */
+            for (let index = currentCellPtr; index < maxRows; index++) 
                 renderEmptyCell(currentRowPtr, ++currentCellPtr)
 
             creditHours += optionalCreditHoursTotal
@@ -112,4 +123,38 @@ function renderCreditTable(semestersCreditHours) {
         row.appendChild(cell)
     })
     return row
+}
+
+/*
+ * getMaxTableRowLength: as name suggests :/
+ * This determines the max number of rows in the table, important
+ * for adding empty cells to align table properly later.
+ * Notes:
+ * - Implementation is dependent on the way the data is structured inside the json files!
+ */
+function getMaxTableRowLength(subjects) {
+    let maxRows = 0
+    let counter = 0
+    let curSem = 0
+    let prevSem = 0
+
+    subjects.forEach((semester) => {
+        semester.forEach(subject => {
+            curSem = subject.semester
+            if(curSem != prevSem)
+            {
+                counter = 0
+                prevSem = curSem
+            }
+
+            if(subject.optionalSet)
+                counter += subject.optionalSet.length
+            else
+                counter++
+        })
+
+        maxRows = counter > maxRows ? counter : maxRows
+    })
+
+    return maxRows
 }
