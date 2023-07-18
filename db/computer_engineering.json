@@ -273,7 +273,7 @@
           "subjectName": "Information Systems",
           "creditHours": 3,
           "requirements": [
-             "MTHn103"
+             "CMPn110"
           ]
        },
        {
@@ -334,15 +334,6 @@
           ]
        },
        {
-         "semester": 6,
-         "id": "ELCn213",
-         "subjectName": "Microelectronic Circuit-2",
-         "creditHours": 3,
-         "requirements": [
-            "ELCn212"
-         ]
-      },
-       {
           "semester": 6,
           "id": "CMPn321",
           "subjectName": "Computer Architecture",
@@ -374,7 +365,7 @@
        },
        {
           "semester": 6,
-          "id": "ENGn213a",
+          "id": "ENGn213c",
           "subjectName": "Advanced Computer Systems Implementation",
           "creditHours": 3,
           "requirements": [
@@ -428,7 +419,7 @@
           "subjectName": "Project-1",
           "creditHours": 2,
           "requirements": [
-             "ENGn213a"
+             "ENGn213c"
           ],
           "conditions": [
              "99 Credits"
@@ -688,6 +679,47 @@
           "creditHours": 2,
           "requirements": [
              
+          ]
+       },
+       {
+          "semester": 9,
+          "id": 127,
+          "optionalSet": [
+             "GENn451b",
+             "GENn452a",
+             "GENn453"
+          ],
+          "list": [
+             {
+                "semester": 9,
+                "id": "GENn451b",
+                "subjectName": "Environmental Effects of Electromagnetic Waves",
+                "creditHours": 2,
+                "requirements": [
+                   
+                ],
+                "optionalSetId": 127
+             },
+             {
+                "semester": 9,
+                "id": "GENn452a",
+                "subjectName": "Civilization and heritage",
+                "creditHours": 2,
+                "requirements": [
+                   
+                ],
+                "optionalSetId": 127
+             },
+             {
+                "semester": 9,
+                "id": "GENn453",
+                "subjectName": "Marketing",
+                "creditHours": 2,
+                "requirements": [
+                   
+                ],
+                "optionalSetId": 127
+             }
           ]
        },
        {
