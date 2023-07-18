@@ -7,6 +7,10 @@
     --opt-cell-abg: #b5b5b53c;
 }
 
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 #table-container, 
 #flowsheet-descr, 
 header,
@@ -15,7 +19,6 @@ footer {
     width: 90%;
     margin: auto;
     font-size: small;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
@@ -209,4 +212,83 @@ table {
 
 footer {
     text-align: center;
+}
+
+/* future light dark mode */
+/* #light-dark-toggle {
+    display: flex;
+    align-items: center;
+    width: 20px;
+    margin: 5px;
+    padding: 15px;
+}
+
+#light-dark-toggle-icon {
+    filter: invert(13%) sepia(53%) saturate(1050%) hue-rotate(185deg) brightness(96%) contrast(88%);
+} */
+
+
+#subject-info-container {
+    display: none;
+    justify-content: end;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #00000049;
+}
+
+#subject-info-white {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 40%;
+    height: 100%;
+    background: white;
+}
+
+#subject-info-main {
+    width: 90%;
+    align-self: flex-start;
+    flex-wrap: wrap;
+    padding: 0 0 0 2em;
+}
+
+#subject-info-main h1 {
+    margin: 0;
+    font-size: xx-large;
+}
+
+#subject-info-icon-container {
+    display: flex;
+    align-items: center;
+    width: 20px;
+    margin: 5px;
+    padding: 20px 30px;
+}
+
+#subject-info-icon {
+    width: 15px;
+    cursor: pointer;
+    filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(275deg) brightness(103%) contrast(7%);
+} 
+
+#subject-info-type {
+    text-transform: capitalize;
+    font-weight: bolder;
+}
+
+#footer-line {
+    width: 70%;
+    height: 1px;
+    background: #eeeeee;
+    border: none;
+    margin-top: 3em;
+}
+
+.cell-credit-hours {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }

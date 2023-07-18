@@ -52,7 +52,7 @@ function renderEmptyCell(rowPtr, currentCellPtr) {
 }
 
 function createCell(row, colId, vertex) {
-    const { id: subjectId, subjectName } = vertex ? vertex.vertex.data : {}
+    const { id: subjectId, subjectName, creditHours } = vertex ? vertex.vertex.data : {}
     const cell = document.createElement('td')
     const div = document.createElement('div')
     const outerDiv = document.createElement('div')
@@ -66,6 +66,12 @@ function createCell(row, colId, vertex) {
     cell.id = colId
 
     const iconsDiv = renderIcons(cell)
+    const creditHrs = document.createElement('span')
+    creditHrs.className = 'cell-credit-hours'
+
+    creditHrs.innerHTML = vertex ? creditHours : ''
+
+    iconsDiv.appendChild(creditHrs)
 
     outerDiv.className = 'inner-cell-container'
     outerDiv.appendChild(div)
@@ -132,6 +138,9 @@ function resetHighlightedCells() {
     if(!current)
         return
 
+    const creditHrs = current.querySelector('.cell-credit-hours')
+    creditHrs.style.display = 'none'
+
     current.removeAttribute('data-current');
     current.removeAttribute('data-is-Held');
     [...dependent].map(elem => elem.removeAttribute('data-dependent'));
@@ -160,6 +169,9 @@ function highlightCell(cell, vertex, optionalId) {
     resetHighlightedCells()
 
     cell.dataset.current = true
+
+    const creditHrs = cell.querySelector('.cell-credit-hours')
+    creditHrs.style.display = 'block'
 
     // check for requirements and dependencies
     while(siblingVertex) {
@@ -197,10 +209,8 @@ function attachCellActions(vertex, cell) {
     const { vertex: { data: { id }}, optionalId } = vertex
 
     cell.dataset.subjectId = id
-    cell.addEventListener('mouseenter', e => {
-        highlightCell(e.target, vertex, optionalId)
-    })
-
+    cell.addEventListener('mouseenter', e => highlightCell(cell, vertex, optionalId))
+    cell.addEventListener('click', e => renderSubject(vertex))
 
     cell.addEventListener('mouseleave', e => {
         let siblingVertex = vertex.vertex.next
@@ -210,6 +220,9 @@ function attachCellActions(vertex, cell) {
             return
 
         e.target.removeAttribute('data-current')
+
+        const creditHrs = cell.querySelector('.cell-credit-hours')
+        creditHrs.style.display = 'none'
 
         while(siblingVertex) {
             const elem = document.querySelector(`[data-subject-id="${siblingVertex.data.id}"]`)
@@ -244,9 +257,80 @@ function holdCells() {
     current.dataset.isHeld = true
 }
 
+function releaseCells() {
+    const current = document.querySelector('[data-current]')
+
+    if(!current)
+        return
+
+    current.dataset.isHeld = false
+}
+
+// isHeld checkbox enabled
 function isHeld() {
     const toggleTableState = document.getElementById('toggle-hold-form')
     const isHeld = new FormData(toggleTableState).get('search-hold')
 
     return isHeld
 }
+
+function renderSubject(vertex) {
+    holdCells()
+    const side = document.getElementById('subject-info-container')
+    const blank = document.getElementById('subject-info-main')
+    side.style.display = 'flex'
+    side.dataset.currentViewId = vertex.vertex.data.id
+
+    blank.innerHTML = ''
+    fillInfoSide(blank, vertex)
+}
+
+function fillInfoSide(blank, vertex) {
+    const { vertex: { data: { type, optionalSetId, subjectName , creditHours, requirements }}, optionalId } = vertex
+    const header = createElement('h1')
+    header.innerHTML = subjectName
+
+    const typeP = createElement('p')
+    typeP.innerHTML = `<span id="subject-info-type">type:</span>`
+
+    if(optionalSetId)
+        typeP.innerHTML += ' optional, choose 1 only'
+    else if(type)
+        typeP.innerHTML += ' training course'
+    else 
+        typeP.innerHTML += ' required'
+
+    const creditHrs = createElement('p')
+    creditHrs.innerHTML = `<span id="subject-info-type">credit hours:</span> ${creditHours} hours`
+
+    const requiredP = createElement('p')
+    requiredP.innerHTML = `<span id="subject-info-type">requirements for the course:</span> `
+    if(requirements.length)
+    requiredP.innerHTML += `<br><ul>`
+
+    requirements.forEach(req => requiredP.innerHTML += `<li>${req}<br></li>`)
+
+    if(requirements.length)
+        requiredP.innerHTML += `</ul>`
+    else
+        requiredP.innerHTML += `none`
+
+    const hr = document.createElement('hr')
+    hr.id = 'footer-line'
+    blank.appendChild(header)
+    blank.appendChild(typeP)
+    blank.appendChild(creditHrs)
+    blank.appendChild(requiredP)
+    blank.appendChild(hr)
+}
+
+function unmountSubjectInfo() {
+    releaseCells()
+    const side = document.getElementById('subject-info-container')
+    const blank = document.getElementById('subject-info-main')
+
+    side.style.display = 'none'
+    side.removeAttribute('data-current-view-id')
+    blank.innerHTML = ''
+}
+

@@ -1,6 +1,11 @@
 //    loadSpecificationData('./db/computer_engineering.json')
 (function () {
+    const side = document.getElementById('subject-info-container')
     const toggleTableState = document.getElementById('toggle-hold-form')
+    side.addEventListener('click', e => {
+        if(e.target === side)
+            unmountSubjectInfo()
+    })
     toggleTableState.addEventListener('change', e => {
         const isHeld = new FormData(toggleTableState).get('search-hold')
         if(isHeld)
