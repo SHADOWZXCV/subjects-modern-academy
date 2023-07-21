@@ -178,6 +178,7 @@ function highlightCell(cell, vertex, optionalId) {
         const elem = document.querySelector(`[data-subject-id="${siblingVertex.data.id}"]`)
 
         // detects a bad graph connection, and wrong ids
+        
         if(!elem){
             console.log(`There is no such subject with ID: ${siblingVertex.data.id}!`);
             break
@@ -286,7 +287,7 @@ function renderSubject(vertex) {
 }
 
 function fillInfoSide(blank, vertex) {
-    const { vertex: { data: { type, optionalSetId, subjectName , creditHours, requirements }}, optionalId } = vertex
+    const { vertex: { data: { type, optionalSetId, subjectName , creditHours, requirements, conditions }}, optionalId } = vertex
     const header = createElement('h1')
     header.innerHTML = subjectName
 
@@ -315,12 +316,24 @@ function fillInfoSide(blank, vertex) {
     else
         requiredP.innerHTML += `none`
 
+    const conditionsP = createElement('p')
+
+    if(conditions)
+    {
+        conditionsP.innerHTML = `<span id="subject-info-type">Can take the course only if:</span> `
+        conditionsP.innerHTML += `<br><ul>`
+    
+        conditions.forEach(req => conditionsP.innerHTML += `<li>${req}<br></li>`)
+        conditionsP.innerHTML += `</ul>`
+    }
+
     const hr = document.createElement('hr')
     hr.id = 'footer-line'
     blank.appendChild(header)
     blank.appendChild(typeP)
     blank.appendChild(creditHrs)
     blank.appendChild(requiredP)
+    blank.appendChild(conditionsP)
     blank.appendChild(hr)
 }
 
