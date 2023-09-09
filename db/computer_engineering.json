@@ -189,14 +189,14 @@
           ]
        },
        {
-          "semester": 3,
-          "id": "ENGn311",
-          "subjectName": "Engineering Economy",
-          "creditHours": 2,
-          "requirements": [
-             
-          ]
-       }
+         "semester": 3,
+         "id": "GENn352",
+         "subjectName": "Risk Management",
+         "creditHours": 2,
+         "requirements": [
+            
+         ]
+      }
     ],
     [
        {
@@ -448,7 +448,7 @@
           "id": 123,
           "optionalSet": [
              "GENn351b",
-             "GENn352",
+             "ENGn311",
              "GENn353"
           ],
           "list": [
@@ -463,15 +463,15 @@
                 "optionalSetId": 123
              },
              {
-                "semester": 7,
-                "id": "GENn352",
-                "subjectName": "Risk Management",
-                "creditHours": 2,
-                "requirements": [
-                   
-                ],
-                "optionalSetId": 123
-             },
+               "semester": 7,
+               "id": "ENGn311",
+               "subjectName": "Engineering Economy",
+               "creditHours": 2,
+               "requirements": [
+                  
+               ],
+               "optionalSetId": 123
+            },
              {
                 "semester": 7,
                 "id": "GENn353",

@@ -26,7 +26,15 @@
         { "semester": 3, "id": "ELCn114", "subjectName": "Modern Theory of Solids", "creditHours": 2, "requirements": ["PHYn002"] },
         { "semester": 3, "id": "CMPn111", "subjectName": "Logic Circuits Design-1", "creditHours": 4, "requirements": ["MTHn001"] },
         { "semester": 3, "id": "GENn141a", "subjectName": "Presentation Skills", "creditHours": 2, "requirements": [] },
-        { "semester": 3, "id": "ENGn311", "subjectName": "Engineering Economy", "creditHours": 2, "requirements": [] }
+        {
+            "semester": 3,
+            "id": "GENn352",
+            "subjectName": "Risk Management",
+            "creditHours": 2,
+            "requirements": [
+               
+            ]
+         }
     ],
     [
         { "semester": 4, "id": "ELCn112", "subjectName": "Electrical Circuit Analysis-2", "creditHours": 3, "requirements": ["ELCn111"] },
@@ -78,7 +86,7 @@
             "id": 123,
             "optionalSet": [
                "GENn351b",
-               "GENn352",
+               "ENGn311",
                "GENn353"
             ],
             "list": [
@@ -92,16 +100,7 @@
                   ],
                   "optionalSetId": 123
                },
-               {
-                  "semester": 7,
-                  "id": "GENn352",
-                  "subjectName": "Risk Management",
-                  "creditHours": 2,
-                  "requirements": [
-                     
-                  ],
-                  "optionalSetId": 123
-               },
+               { "semester": 7, "id": "ENGn311", "optionalSetId": 123, "subjectName": "Engineering Economy", "creditHours": 2, "requirements": [] },
                {
                   "semester": 7,
                   "id": "GENn353",
