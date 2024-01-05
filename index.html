@@ -26,9 +26,10 @@
                     </form>
                 </div>
                 <select onchange="renderTable()" class="header-input" id="header-select-main">
-                    <option selected disabled>Choose your specialization</option>
+                    <option disabled>Choose your specialization</option>
                     <option value="Communication">Communication Engineering</option>
-                    <option value="Computer">Computer Engineering</option>
+                    <option value="Computer" selected>Computer Engineering</option>
+                    <option value="Civil">Civil Engineering</option>
                 </select>
                 <div class="column">
                     <p id="chosen-semester-heading"></p>
@@ -93,11 +94,11 @@
 
     <div id="flowsheet-descr">
         <h3>What colors represent:</h3>
-        <span class="descr-span" id="desc-current">Current subject description <i class="desc-icon"><img src="./assets/images/info-circle.svg"></i></span>
-        <span class="descr-span" id="desc-req">Requirements for the current subject <i class="desc-icon small-desc-icon no-invert-desc-icon"><img src="./assets/images/arrow-left.svg"></i></span>
-        <span class="descr-span" id="desc-dependent">Subjects that are open after this subject is complete <i class="desc-icon small-desc-icon"><img src="./assets/images/arrow-right.svg"></i></span>
-        <span class="descr-span" id="desc-training">Training</span>
-        <span class="descr-span" id="desc-optional">Optional subjects, you can take only one of them</span>
+        <div class="descr-div" id="desc-current"><span class="circle-indicator" id="current-indicator"></span> Current subject description <i class="desc-icon"><img src="./assets/images/info-circle.svg"></i></div>
+        <div class="descr-div" id="desc-req"><span class="circle-indicator" id="req-indicator"></span> Requirements for the current subject <i class="desc-icon small-desc-icon no-invert-desc-icon"><img src="./assets/images/arrow-left.svg"></i></div>
+        <div class="descr-div" id="desc-dependent"><span class="circle-indicator" id="dependent-indicator"></span> Subjects that are open after this subject is complete <i class="desc-icon small-desc-icon"><img src="./assets/images/arrow-right.svg"></i></div>
+        <div class="descr-div" id="desc-training"><span class="circle-indicator" id="training-indicator"></span> Training</div>
+        <div class="descr-div" id="desc-optional"><span class="circle-indicator" id="optional-indicator"></span> Optional subjects, you can take only one of them</div>
     </div>
     <br>
     <hr>

@@ -51,13 +51,13 @@ function initTable(subjects) {
             if(subject.type === TRAINING)
                 isTrainingSem = true
 
-
             // optionalSets are loaded within the subjects, they are sets of subjects.
             else if(subject.optionalSet) {
-                subject.optionalSet.forEach(optionalSubject => {
-                    const vertex = graph.search(optionalSubject)
-
-                    prevCellPtr = renderVertex(prevCellPtr, ++currentCellPtr, vertex, isTrainingSem)
+                subject.list.forEach(optionalSubject => {
+                    const vertex = graph.search(optionalSubject.id)
+                    const {semester: rowPtr, optionalSetId} = optionalSubject
+                
+                    prevCellPtr = renderVertex(prevCellPtr, ++currentCellPtr, vertex, isTrainingSem, rowPtr, optionalSetId)
                     optionalCreditHours = vertex.vertex.data.creditHours
                 })
 
@@ -67,9 +67,10 @@ function initTable(subjects) {
             }
                 
                 const vertex = graph.search(subject.id)
+                const rowPtr = subject.semester
                 
                 creditHours += vertex.vertex.data.creditHours
-                prevCellPtr = renderVertex(prevCellPtr, ++currentCellPtr, vertex, isTrainingSem)
+                prevCellPtr = renderVertex(prevCellPtr, ++currentCellPtr, vertex, isTrainingSem, rowPtr)
 
         })
 

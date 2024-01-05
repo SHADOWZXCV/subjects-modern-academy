@@ -85,6 +85,7 @@ table {
 
 #credit-table {
     margin: 15px 0;
+    width: 100%;
 }
 
 .credit-cell {
@@ -98,12 +99,12 @@ table {
 }
 
 
-.cell[data-current='true']:not([data-is-training]), #desc-current {
+.cell[data-current='true']:not([data-is-training]), #desc-current, #current-indicator {
     background: var(--current-cell-bg);
     color: white;
 }
 
-.cell[data-current='true'][data-is-training], #desc-training {
+.cell[data-current='true'][data-is-training], #desc-training, #training-indicator {
     background: var(--exclusive-cell-bg);
     color: white;
 }
@@ -113,18 +114,22 @@ table {
     border: solid 2px #d3d3d3;
 }
 
-.cell[data-dependent='true'], #desc-dependent {
+.cell[data-dependent='true'], #desc-dependent, #dependent-indicator {
     background: #002F56;
     color: white;
 }
 
-.cell[data-required='true'], #desc-req {
+.cell[data-required='true'], #desc-req, #req-indicator {
     background: var(--required-cell-bg);
     color: black;
 }
 
+.circle-indicator {
+    display: none;
+}
+
 /* Group of optional cells */
-.cell[data-is-optional-sibling='true'], #desc-optional {
+.cell[data-is-optional-sibling='true'], #desc-optional, #optional-indicator {
     outline: dashed 3px var(--current-cell-bg);
 }
 
@@ -133,15 +138,11 @@ table {
     background: var(--opt-cell-bg);
 }
 
-#credit-table {
-    width: 100%;
-}
-
 #flowsheet-descr {
     display: flex;
 }
 
-.descr-span {
+.descr-div {
     display: flex;
     align-items: center;
     background: var(--opt-cell-abg);
@@ -160,7 +161,7 @@ table {
     filter: invert(0);
 }
 
-#desc-optional {
+#desc-optional, #optional-indicator {
     background: var(--opt-cell-bg);
 }
 
@@ -295,4 +296,42 @@ footer {
 
 .column * {
     margin: 0 0 0.5em 0;
+}
+
+@media (max-width:880px) {
+    #table-container {
+        width: unset;
+    }
+
+    #credit-table {
+        width: max-content;
+    }
+
+    #flowsheet-descr {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+    #desc-dependent, #desc-current, #desc-req, #desc-training, #desc-optional {
+        background-color: transparent;
+        color: black;
+        font-size: larger;
+        outline: none;
+    }
+
+    .circle-indicator {
+        display: block;
+        height: 30px;
+        width: 30px;
+        background-color: black;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+
+    .desc-icon {
+        filter: none;
+    }
+    .descr-div {
+        padding: 0;
+    }
 }

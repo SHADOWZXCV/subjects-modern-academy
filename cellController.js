@@ -1,5 +1,4 @@
-function renderVertex(prevCellPtr, currentCellPtr, vertex, isTrainingSem) {
-    const { vertex: { data: { semester: rowPtr } } } = vertex
+function renderVertex(prevCellPtr, currentCellPtr, vertex, isTrainingSem, rowPtr, optionalId) {
     let rowId = `sub-${currentCellPtr}`
     let colId = `sem-${rowPtr}-sub-${currentCellPtr}`
     
@@ -15,12 +14,12 @@ function renderVertex(prevCellPtr, currentCellPtr, vertex, isTrainingSem) {
     if(!row)
         row = createSemestersRow(rowId)
     if(!cell)
-        cell = createCell(row, colId, vertex)
+        cell = createCell(row, colId, vertex, optionalId)
 
     else if(cell && !cell.contains(null))
     {   
         cell.remove()
-        cell = createCell(row, colId, vertex)
+        cell = createCell(row, colId, vertex, optionalId)
     }
     
     if (isTrainingSem){
@@ -51,7 +50,7 @@ function renderEmptyCell(rowPtr, currentCellPtr) {
     cell.dataset.isEmpty = true
 }
 
-function createCell(row, colId, vertex) {
+function createCell(row, colId, vertex, optionalId) {
     const { id: subjectId, subjectName, creditHours } = vertex ? vertex.vertex.data : {}
     const cell = document.createElement('td')
     const div = document.createElement('div')
@@ -82,11 +81,11 @@ function createCell(row, colId, vertex) {
     if(!vertex)
         return cell
 
-    if(vertex.optionalId) {
-        cell.dataset.optionalId = vertex.optionalId
+    if(optionalId) {
+        cell.dataset.optionalId = optionalId
     }
     
-    attachCellActions(vertex, cell)
+    attachCellActions(vertex, cell, optionalId)
 
     return cell
 }
@@ -205,9 +204,9 @@ function highlightCell(cell, vertex, optionalId) {
     }
 }
 
-function attachCellActions(vertex, cell) {
+function attachCellActions(vertex, cell, optionalId) {
     // add necessary data for hover action
-    const { vertex: { data: { id }}, optionalId } = vertex
+    const { vertex: { data: { id }} } = vertex
 
     cell.dataset.subjectId = id
     cell.addEventListener('mouseenter', e => highlightCell(cell, vertex, optionalId))
