@@ -3,37 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Modern Academy for Engineering Subjects</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
             <div id="header-main">
-                <h1 id="header-title">Transfer Flowsheet for Electrical Engineering Departments BS
+                <h1 id="header-title">Transfer Flowsheet for Engineering Departments BS
                     (Effective AY 2020-21)</h1>
+                <a href="#gpa-calculator-section"><button id="gpa-feature-button" class="gpa-btn" data-gpa-toggle="off" title="Select your subjects and calculate GPA">GPA Calculation Mode</button></a>
                     <!-- future light dark mode -->
-                    <!-- <span id="light-dark-toggle"><img src="./assets/images/moon-solid.svg" id="light-dark-toggle-icon"></span>                 -->
+                    <!-- <span id="light-dark-toggle"><img src="./assets/images/moon-solid.svg" id="light-dark-toggle-icon"></span> -->
+            </div>
+            <div class="table-info">
+                <p id="chosen-semester-heading"></p>
+                <p style="color: red;">Valid for: <span style="font-weight: bolder;">2023/2024 students</span></p>
             </div>
             <div id="spec-details">
                 <div id="table-status">
                     <form id="search-bar">
-                        <label for="search-entry">Search by code:</label>
-                        <input type="text" class="header-input" name="search-entry" placeholder="Search by subject code..." />
+                        <div class="search-bar-entry">
+                            <label for="search-entry"><b>Search by code</b></label>
+                            <input type="text" id="header-search" class="header-input" name="search-entry" placeholder="Search by subject code..." />
+                        </div>
+                        <div class="search-bar-entry">
+                            <label><b>Select Specialization</b></label>
+                            <select onchange="renderTable()" class="header-input" id="header-select-main">
+                                <option disabled>Choose your specialization</option>
+                                <option value="Communication">Communication Engineering</option>
+                                <option value="Computer" selected>Computer Engineering</option>
+                                <option value="Civil">Civil Engineering</option>
+                            </select>
+                        </div>
                     </form>
-                    <form id="toggle-hold-form">
-                        <input type="checkbox" name="search-hold"/>
+                        <input type="checkbox" name="search-hold" id="search-hold"/>
                         <label for="hold">Click to Hold highlighted subjects</label>
-                    </form>
-                </div>
-                <select onchange="renderTable()" class="header-input" id="header-select-main">
-                    <option disabled>Choose your specialization</option>
-                    <option value="Communication">Communication Engineering</option>
-                    <option value="Computer" selected>Computer Engineering</option>
-                    <option value="Civil">Civil Engineering</option>
-                </select>
-                <div class="column">
-                    <p id="chosen-semester-heading"></p>
-                    <p style="color: red;">Valid for: <span style="font-weight: bolder;">2023/2024 students</span></p>
                 </div>
             </div>
         </header>
@@ -41,23 +45,23 @@
         <table>
             <thead>
                 <tr>
-                    <th class="flowsheet-header-cell" colspan="2">Year 1 - Freshman</th>
-                    <th class="flowsheet-header-cell" colspan="2">Year 2 - Sophomore</th>
-                    <th class="flowsheet-header-cell" colspan="2">Year 3 - Junior</th>
-                    <th class="flowsheet-header-cell" colspan="2">Year 4 - Junior</th>
-                    <th class="flowsheet-header-cell" colspan="2">Year 5 - Senior</th>
+                    <th class="flowsheet-header-cell" colspan="2"data-header-year="1">Year 1 - Freshman</th>
+                    <th class="flowsheet-header-cell" colspan="2"data-header-year="2">Year 2 - Sophomore</th>
+                    <th class="flowsheet-header-cell" colspan="2"data-header-year="3">Year 3 - Junior</th>
+                    <th class="flowsheet-header-cell" colspan="2"data-header-year="4">Year 4 - Junior</th>
+                    <th class="flowsheet-header-cell" colspan="2"data-header-year="5">Year 5 - Senior</th>
                 </tr>
                 <tr>
-                    <th colspan="1" class="flowsheet-header-cell">Fall</th>
-                    <th colspan="1" class="flowsheet-header-cell">Spring</th>
-                    <th colspan="1" class="flowsheet-header-cell">Fall</th>
-                    <th colspan="1" class="flowsheet-header-cell">Spring</th>
-                    <th colspan="1" class="flowsheet-header-cell">Fall</th>
-                    <th colspan="1" class="flowsheet-header-cell">Spring</th>
-                    <th colspan="1" class="flowsheet-header-cell">Fall</th>
-                    <th colspan="1" class="flowsheet-header-cell">Spring</th>
-                    <th colspan="1" class="flowsheet-header-cell">Fall</th>
-                    <th colspan="1" class="flowsheet-header-cell">Spring</th>
+                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="1">Fall</th>
+                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="2">Spring</th>
+                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="3">Fall</th>
+                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="4">Spring</th>
+                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="5">Fall</th>
+                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="6">Spring</th>
+                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="7">Fall</th>
+                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="8">Spring</th>
+                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="9">Fall</th>
+                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="10">Spring</th>
                 </tr>
             </thead>
             <tbody id="table-body-flowsheet">
@@ -105,11 +109,13 @@
     <footer>
         <p>Made with ❤️ by Ezzeldin Husen</p>
     </footer>
-    <script src="util.js"></script>
-    <script src="MirectedGraph.js"></script>
-    <script src="tableController.js"></script>    
-    <script src="cellController.js"></script>
-    <script src="index.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/MirectedGraph.js"></script>
+    <script src="js/tableController.js"></script>    
+    <script src="js/cellController.js"></script>
+    <script src="js/gpa/index.js"></script>
+    <script src="js/gpa/gpaInterfaceController.js"></script>
+    <script src="js/index.js"></script>
     <script src="https://example.com/fontawesome/v5.15.4/js/all.js"></script>
 </body>
 </html>

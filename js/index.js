@@ -1,26 +1,43 @@
 //    loadSpecificationData('./db/computer_engineering.json')
+let GPA_MODE = false;
+
 (function () {
     const side = document.getElementById('subject-info-container')
-    const toggleTableState = document.getElementById('toggle-hold-form')
+    const gpa_button = document.getElementById('gpa-feature-button')
     side.addEventListener('click', e => {
         if(e.target === side)
             unmountSubjectInfo()
     })
-    toggleTableState.addEventListener('change', e => {
-        const isHeld = new FormData(toggleTableState).get('search-hold')
-        if(isHeld)
-            holdCells()
+
+
+    gpa_button.addEventListener('click', e => {
+        e.target.dataset.gpaToggle = e.target.dataset.gpaToggle === "on" ? "off" : "on"
+        GPA_MODE = e.target.dataset.gpaToggle === "on"
+
+        toggleClassModifierOfElement(GPA_MODE, e.target, "gpa-btn", "on", "off")
+        e.target.innerText = GPA_MODE ? "Press okay" : "GPA Calculation Mode"
+
+        if(GPA_MODE)
+            gpaEnableInteraction()
+        else
+            {
+                gpaDisableInteraction()
+                // gpaRedirectView()
+            }
+
     })
 
     loadSpecificationData('./db/computer_engineering.json')
     .then(subjects => {
-        const viewHeading = document.getElementById('chosen-semester-heading')
-        viewHeading.innerHTML = `Currently viewing: <b>Computer Engineering</b>`
-
         initTable(subjects)
     })
+
 })()
 
+function toggleClassModifierOfElement(state, elem, baseClass, onClass, offClass) {
+    elem.classList.remove(`${baseClass}_${state ? offClass : onClass}`);
+    elem.classList.add(`${baseClass}_${state ? onClass : offClass}`);
+}
 
 function renderTable() {
     // reset search and table holding position
@@ -35,9 +52,8 @@ function renderTable() {
         if(files[selected])
         loadSpecificationData(`./db/${files[selected]}.json`)
         .then(subjects => {
-            const viewHeading = document.getElementById('chosen-semester-heading')
-            viewHeading.innerHTML = `Currently viewing: <b>${selected} Engineering</b>`
-
+            // TODO
+            // selectedElements.semesters = []
             initTable(subjects)
         })
     })

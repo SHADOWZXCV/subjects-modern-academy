@@ -115,9 +115,12 @@ function createSemestersRow(rowId) {
 function renderCreditTable(semestersCreditHours) {
     const row = document.getElementById('credit-table-row')
 
-    semestersCreditHours.forEach(credit => {
+    semestersCreditHours.forEach((credit, idx) => {
         const cell = document.createElement('th')
         cell.className = 'credit-cell'
+        cell.dataset.tableYear = Math.trunc((idx + 2) / 2)
+        cell.dataset.tableSemester = idx + 1
+        cell.dataset.semesterCredits = credit
 
         cell.innerHTML = `${credit} Hours`
 

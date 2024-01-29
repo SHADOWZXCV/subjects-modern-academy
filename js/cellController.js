@@ -167,6 +167,10 @@ function highlightCell(cell, vertex, optionalId) {
 
     resetHighlightedCells()
 
+    if(GPA_MODE){
+        return
+    }
+
     cell.dataset.current = true
 
     const creditHrs = cell.querySelector('.cell-credit-hours')
@@ -206,18 +210,23 @@ function highlightCell(cell, vertex, optionalId) {
 
 function attachCellActions(vertex, cell, optionalId) {
     // add necessary data for hover action
-    const { vertex: { data: { id }} } = vertex
+    const { vertex: { data: { id, semester, creditHours }} } = vertex
 
     cell.dataset.subjectId = id
+    cell.dataset.semester = semester
+    cell.dataset.creditHours = creditHours
+    
     cell.addEventListener('mouseenter', e => highlightCell(cell, vertex, optionalId))
-    cell.addEventListener('click', e => renderSubject(vertex))
+    cell.addEventListener('click', e => handleCellClick(e, vertex))
 
     cell.addEventListener('mouseleave', e => {
         let siblingVertex = vertex.vertex.next
         let dirWeight = vertex.vertex.dirWeight
 
         if(!e.target.dataset.current || cell.dataset.isHeld)
+        {
             return
+        }
 
         e.target.removeAttribute('data-current')
 
@@ -245,7 +254,19 @@ function attachCellActions(vertex, cell, optionalId) {
                 element.dataset.isOptionalSibling = false
             });
         }
+
+        if(GPA_MODE){
+            return
+        }
     })
+}
+
+function handleCellClick(e, vertex) {
+    if(!GPA_MODE)
+        return renderSubject(vertex)
+
+    // js/gpa/GPAInterfaceController
+    return handleGPASelect(e, vertex.vertex.data.creditHours)
 }
 
 function holdCells() {
@@ -268,8 +289,8 @@ function releaseCells() {
 
 // isHeld checkbox enabled
 function isHeld() {
-    const toggleTableState = document.getElementById('toggle-hold-form')
-    const isHeld = new FormData(toggleTableState).get('search-hold')
+    const toggleTableState = document.getElementById('search-hold')
+    const isHeld = toggleTableState.checked
 
     return isHeld
 }
@@ -345,4 +366,3 @@ function unmountSubjectInfo() {
     side.removeAttribute('data-current-view-id')
     blank.innerHTML = ''
 }
-
