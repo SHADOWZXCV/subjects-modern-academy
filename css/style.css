@@ -414,7 +414,7 @@ footer {
 }
 
 #gpa-feature-button {
-    display: inline-block;
+    display: none;
     outline: 0;
     cursor: pointer;
     border: none;
