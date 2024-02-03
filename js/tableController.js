@@ -1,21 +1,23 @@
 const TRAINING = 1
+// A undirected graph is essential for determining what requirements are 
+//for a subject, and what the subject can unlock. 
+const graph = new MirectedGraph()
 
 function initTable(subjects) {
-    // A undirected graph is essential for determining what requirements are 
-    //for a subject, and what the subject can unlock. 
-    const graph = new MirectedGraph()
-
-    // reset the table
     const tableBody = document.getElementById('table-body-flowsheet')
     const tableCreditRow = document.getElementById('credit-table-row')
     tableBody.innerHTML = ''
     tableCreditRow.innerHTML = ''
 
+    // reset the table
+    graph.clear()
     subjects.map(semester => initGraph(graph, semester))
 
     // initialize the search functionality
     const searchForm = document.getElementsByName('search-entry')[0]
-    searchForm.addEventListener('keyup', e => highlightCellByCode(graph))
+
+    if(searchForm)
+       searchForm.addEventListener('keyup', e => highlightCellByCode(graph))
 
     // get value of maximum table rows
     const maxRows = getMaxTableRowLength(subjects)

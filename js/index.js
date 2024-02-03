@@ -4,27 +4,23 @@ let GPA_MODE = false;
 (function () {
     const side = document.getElementById('subject-info-container')
     const gpa_button = document.getElementById('gpa-feature-button')
+
     side.addEventListener('click', e => {
         if(e.target === side)
             unmountSubjectInfo()
     })
-
 
     gpa_button.addEventListener('click', e => {
         e.target.dataset.gpaToggle = e.target.dataset.gpaToggle === "on" ? "off" : "on"
         GPA_MODE = e.target.dataset.gpaToggle === "on"
 
         toggleClassModifierOfElement(GPA_MODE, e.target, "gpa-btn", "on", "off")
-        e.target.innerText = GPA_MODE ? "Press okay" : "GPA Calculation Mode"
+        e.target.innerText = GPA_MODE ? "Back to search mode" : "GPA Calculation Mode"
 
         if(GPA_MODE)
             gpaEnableInteraction()
         else
-            {
-                gpaDisableInteraction()
-                // gpaRedirectView()
-            }
-
+            gpaDisableInteraction()
     })
 
     loadSpecificationData('./db/computer_engineering.json')

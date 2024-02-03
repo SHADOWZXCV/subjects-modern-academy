@@ -262,11 +262,11 @@ function attachCellActions(vertex, cell, optionalId) {
 }
 
 function handleCellClick(e, vertex) {
-    if(!GPA_MODE)
-        return renderSubject(vertex)
-
     // js/gpa/GPAInterfaceController
-    return handleGPASelect(e, vertex.vertex.data.creditHours)
+    if(GPA_MODE)
+        return handleGPASelect(e, vertex.vertex.data.creditHours)
+
+    return renderSubject(vertex)
 }
 
 function holdCells() {
@@ -290,6 +290,10 @@ function releaseCells() {
 // isHeld checkbox enabled
 function isHeld() {
     const toggleTableState = document.getElementById('search-hold')
+
+    if(!toggleTableState)
+        return false
+    
     const isHeld = toggleTableState.checked
 
     return isHeld

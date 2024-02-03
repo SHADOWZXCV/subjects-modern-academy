@@ -121,6 +121,12 @@ class MirectedGraph {
         else if(dir === GO_LEFT)
             newEdge.dirWeight = DEPENDENT
     }
+
+    clear() {
+        this.adjacencyList = {}
+        this.adjacencyListOptionals = {}
+        this.size = 0
+    }
 }
 
 
