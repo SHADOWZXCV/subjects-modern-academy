@@ -61,7 +61,7 @@
         { "semester": 6, "id": "ELCn213", "subjectName": "Microelectronic Circuit-2", "creditHours": 3, "requirements": ["ELCn212"] },
         { "semester": 6, "id": "MTHn208", "subjectName": "Mathematics-8 (Complex Analysis and P. D, E)", "creditHours": 2, "requirements": ["MTHn002"] },
         { "semester": 6, "id": "CMPn261", "subjectName": "Seminar", "creditHours": 1, "requirements": [], "conditions": ["66 Credits"]},
-        { "semester": 6, "id": "ENGn213", "subjectName": "Advanced Computer Systems Implementation", "creditHours": 2, "requirements": ["CMPn010"] },
+        { "semester": 6, "id": "ENGn213", "subjectName": "Advanced Computer Systems Implementation", "creditHours": 3, "requirements": ["CMPn010"] },
         { "semester": 6, "id": "GENn142a", "subjectName": "Technical Report Writing", "creditHours": 2, "requirements": [] }
     ],
     [
