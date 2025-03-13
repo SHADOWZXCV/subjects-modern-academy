@@ -1,5 +1,6 @@
 {
-  "Communication": "communication_engineering",
   "Computer": "computer_engineering",
+  "Communication": "communication_engineering",
+  "Architecture": "architecture_engineering",
   "Civil": "civil_engineering"
 }
