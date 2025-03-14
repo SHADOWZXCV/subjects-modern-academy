@@ -1,181 +1,250 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Academy for Engineering Subjects</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Academy for Engineering Subjects</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-    <header>
-            <div id="header-main">
-                <h1 id="header-title">Transfer Flowsheet for Engineering Departments BS
-                    (Effective AY 2020-21)</h1>
-                <button id="gpa-feature-button" class="normal-button gpa-btn" data-gpa-toggle="off" title="Select your subjects and calculate GPA">GPA Calculation Mode</button>
-                    <!-- future light dark mode -->
-                    <!-- <span id="light-dark-toggle"><img src="./assets/images/moon-solid.svg" id="light-dark-toggle-icon"></span> -->
-            </div>
-            <div class="table-info">
-                <p id="chosen-semester-heading"></p>
-                <p style="color: red;">Valid for: <span style="font-weight: bolder;">2023/2024 students</span></p>
-            </div>
-                    <!-- TODO -->
-        <div id="gpa-calculator">
-            <!-- <h3>Choose your mode:</h3>
+  <header>
+    <div id="header-main">
+      <h1 id="header-title">
+        Transfer Flowsheet for Engineering Departments BS (Effective AY
+        2020-21)
+      </h1>
+      <button id="gpa-feature-button" class="normal-button gpa-btn" data-gpa-toggle="off"
+        title="Select your subjects and calculate GPA">
+        GPA Calculation Mode
+      </button>
+      <!-- future light dark mode -->
+      <!-- <span id="light-dark-toggle"><img src="./assets/images/moon-solid.svg" id="light-dark-toggle-icon"></span> -->
+    </div>
+    <div class="table-info">
+      <p id="chosen-semester-heading"></p>
+      <p style="color: red">
+        Valid for: <span style="font-weight: bolder">2023/2024 students</span>
+      </p>
+    </div>
+    <!-- TODO -->
+    <div id="gpa-calculator">
+      <!-- <h3>Choose your mode:</h3>
             <div>
                 <button id="ngpa-feature-button" class="normal-button gpa-btn" data-ngpa data-gpa-toggle="off" title="Select subjects and calculate GPA">Semester GPA</button>
                 <span>or</span>
                 <button id="cgpa-feature-button" class="normal-button gpa-btn" data-cgpa data-gpa-toggle="off" title="Select your subjects and calculate GPA">CGPA</button>
             </div> -->
-            <div id="ngpa-calc">
-                <div id="ngpa-input-view">
-                    <div class="gpa-subjects-rows">
-                        <div id="gpa-subject-headings">
-                            <div class="gpa-subject-heading">
-                                <b>Subject</b>
-                            </div>
-                            <div class="gpa-subject-heading">
-                                <b>Code</b>
-                            </div>
-                            <div class="gpa-subject-heading">
-                                <b>Credit hours</b>
-                            </div>
-                            <div class="gpa-subject-heading">
-                                <b>Grade</b>
-                            </div>
-                        </div>
-                    </div>
-                    <p id="gpa-calculate-step-1">Select something from table first!</p>
-                    <div id="gpa-calculate-step-2">
-                        <p id="gpa-calculate-text-step-2">Select an option:</p>
-                        <button class="normal-button" id="calculate-gpa-btn" onclick="updateNGPAView(calculateNGPA())">Calculate</button>
-                        <button class="normal-button" id="cgpa-btn" onclick="toggleTotalGPAClick()">Total GPA</button>
-                        <button class="hollow-border-button" id="cgpa-no-credits-btn" onclick="toggleConfusedCGPAView()">Total GPA but no credit hours</button>
-                    </div>
-                </div>
-                <div id="gpa-res-block">
-                    <div id="old-gpa-details">
-                        <span id="big-plus">+</span> 
-                        <div id="ngpa-cgpa-view">
-                            <p>Old GPA</p>
-                            <input type="number" step="0.001" max="4" min="0" class="cgpa-input" name="cgpa" placeholder="0.000">
-                        </div>
-                        <span id="big-plus">*</span> 
-                        <div id="ngpa-cgpa-view">
-                            <p>Previously Completed Credits</p>
-                            <input type="number" min="0" class="cgpa-input" name="cgpa-credits" placeholder="0">
-                        </div>
-                    </div>
-                    <span id="big-plus">=</span> 
-                    <div id="ngpa-result-view">
-                        <p id="ngpa-result-text">Your GPA score: </p>
-                        <h1 id="ngpa-score">0.000</h1>
-                    </div>
-                </div>
+      <div id="ngpa-calc">
+        <div id="ngpa-input-view">
+          <div class="gpa-subjects-rows">
+            <div id="gpa-subject-headings">
+              <div class="gpa-subject-heading">
+                <b>Subject</b>
+              </div>
+              <div class="gpa-subject-heading">
+                <b>Code</b>
+              </div>
+              <div class="gpa-subject-heading">
+                <b>Credit hours</b>
+              </div>
+              <div class="gpa-subject-heading">
+                <b>Grade</b>
+              </div>
             </div>
-            <p id="select-hint-message"></p>
+          </div>
+          <p id="gpa-calculate-step-1">Select something from table first!</p>
+          <div id="gpa-calculate-step-2">
+            <p id="gpa-calculate-text-step-2">Select an option:</p>
+            <button class="normal-button" id="calculate-gpa-btn" onclick="updateNGPAView(calculateNGPA())">
+              Calculate
+            </button>
+            <button class="normal-button" id="cgpa-btn" onclick="toggleTotalGPAClick()">
+              Total GPA
+            </button>
+            <button class="hollow-border-button" id="cgpa-no-credits-btn" onclick="toggleConfusedCGPAView()">
+              Total GPA but no credit hours
+            </button>
+          </div>
         </div>
-            <div id="search-details">
-                <div id="table-status">
-                    <form id="search-bar">
-                        <div class="search-bar-entry">
-                            <label for="search-entry"><b>Search by code</b></label>
-                            <input type="text" id="header-search" class="header-input" name="search-entry" placeholder="Search by subject code..." />
-                        </div>
-                        <div class="search-bar-entry">
-                            <label><b>Select Specialization</b></label>
-                            <select onchange="renderTable()" class="header-input" id="header-select-main">
-                                <option disabled>Choose your specialization</option>
-                                <option value="Communication">Communication Engineering</option>
-                                <option value="Computer" selected>Computer Engineering</option>
-                                <option value="Civil">Civil Engineering</option>
-                            </select>
-                        </div>
-                    </form>
-                        <input type="checkbox" name="search-hold" id="search-hold"/>
-                        <label for="hold">Click to Hold highlighted subjects</label>
-                </div>
+        <div id="gpa-res-block">
+          <div id="old-gpa-details">
+            <span id="big-plus">+</span>
+            <div id="ngpa-cgpa-view">
+              <p>Old GPA</p>
+              <input type="number" step="0.001" max="4" min="0" class="cgpa-input" name="cgpa" placeholder="0.000" />
             </div>
-        </header>
-    <main id="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th class="flowsheet-header-cell" colspan="2"data-header-year="1">Year 1 - Freshman</th>
-                    <th class="flowsheet-header-cell" colspan="2"data-header-year="2">Year 2 - Sophomore</th>
-                    <th class="flowsheet-header-cell" colspan="2"data-header-year="3">Year 3 - Junior</th>
-                    <th class="flowsheet-header-cell" colspan="2"data-header-year="4">Year 4 - Junior</th>
-                    <th class="flowsheet-header-cell" colspan="2"data-header-year="5">Year 5 - Senior</th>
-                </tr>
-                <tr>
-                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="1">Fall</th>
-                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="2">Spring</th>
-                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="3">Fall</th>
-                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="4">Spring</th>
-                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="5">Fall</th>
-                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="6">Spring</th>
-                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="7">Fall</th>
-                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="8">Spring</th>
-                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="9">Fall</th>
-                    <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="10">Spring</th>
-                </tr>
-            </thead>
-            <tbody id="table-body-flowsheet">
-            </tbody>
-        </table>
-        <h2>Total credit hours for each semester</h2>
-        <table id="credit-table" cellspacing="0">
-            <thead>
-                <tr id="credit-table-summary">
-                    <th colspan="2" class="credit-header-cell">year 1</th>
-                    <th colspan="2" class="credit-header-cell">year 2</th>
-                    <th colspan="2" class="credit-header-cell">year 3</th>
-                    <th colspan="2" class="credit-header-cell">year 4</th>
-                    <th colspan="2" class="credit-header-cell">year 5</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr id="credit-table-row">
-                </tr>
-            </tbody>
-        </table>
-    </main>
-    <aside id="subject-info-container">
-        <div id="subject-info-white">
-            <span id="subject-info-icon-container"><img src="./assets/images/xmark-solid.svg" id="subject-info-icon" onclick="unmountSubjectInfo()"></span>
-            <div id="subject-info-main">
+            <span id="big-plus">*</span>
+            <div id="ngpa-cgpa-view">
+              <p>Previously Completed Credits</p>
+              <input type="number" min="0" class="cgpa-input" name="cgpa-credits" placeholder="0" />
             </div>
+          </div>
+          <span id="big-plus">=</span>
+          <div id="ngpa-result-view">
+            <p id="ngpa-result-text">Your GPA score:</p>
+            <h1 id="ngpa-score">0.000</h1>
+          </div>
         </div>
-    </aside>
-    <br>
-    <hr>
-    <br>
-
-    <div id="flowsheet-descr">
-        <h3>What colors represent:</h3>
-        <div class="descr-div" id="desc-current"><span class="circle-indicator" id="current-indicator"></span> Current subject description <i class="desc-icon"><img src="./assets/images/info-circle.svg"></i></div>
-        <div class="descr-div" id="desc-req"><span class="circle-indicator" id="req-indicator"></span> Requirements for the current subject <i class="desc-icon small-desc-icon no-invert-desc-icon"><img src="./assets/images/arrow-left.svg"></i></div>
-        <div class="descr-div" id="desc-dependent"><span class="circle-indicator" id="dependent-indicator"></span> Subjects that are open after this subject is complete <i class="desc-icon small-desc-icon"><img src="./assets/images/arrow-right.svg"></i></div>
-        <div class="descr-div" id="desc-training"><span class="circle-indicator" id="training-indicator"></span> Training</div>
-        <div class="descr-div" id="desc-optional"><span class="circle-indicator" id="optional-indicator"></span> Optional subjects, you can take only one of them</div>
+      </div>
+      <p id="select-hint-message"></p>
     </div>
-    <br>
-    <hr>
-    
-    <footer>
-        <p>Made with ❤️ by <a href="https://www.linkedin.com/in/ezz-aldyn-husen/">Ezzeldin Husen</a></p>
-        <p>Contributors:</p>
-        <ul>
-            <!-- INSERT CONTRIBUTORS NAMES HERE -->
-        </ul>
-    </footer>
-    <script src="js/util.js"></script>
-    <script src="js/MirectedGraph.js"></script>
-    <script src="js/tableController.js"></script>    
-    <script src="js/cellController.js"></script>
-    <script src="js/gpa/index.js"></script>
-    <script src="js/gpa/gpaInterfaceController.js"></script>
-    <script src="js/index.js"></script>
+    <div id="search-details">
+      <div id="table-status">
+        <form id="search-bar">
+          <div class="search-bar-entry">
+            <label for="search-entry"><b>Search by code</b></label>
+            <input type="text" id="header-search" class="header-input" name="search-entry"
+              placeholder="Search by subject code..." />
+          </div>
+          <div class="search-bar-entry">
+            <label><b>Select Specialization</b></label>
+            <select onchange="renderTable()" class="header-input" id="header-select-main">
+              <option disabled>Choose your specialization</option>
+              <option value="Computer" selected>Computer Engineering</option>
+              <option value="Communication">Communication Engineering</option>
+              <option value="Architecture">Architecture Engineering</option>
+              <option value="Civil">Civil Engineering</option>
+            </select>
+          </div>
+        </form>
+        <input type="checkbox" name="search-hold" id="search-hold" />
+        <label for="hold">Click to Hold highlighted subjects</label>
+      </div>
+    </div>
+  </header>
+  <main id="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th class="flowsheet-header-cell" colspan="2" data-header-year="1">
+            Year 1 - Freshman
+          </th>
+          <th class="flowsheet-header-cell" colspan="2" data-header-year="2">
+            Year 2 - Sophomore
+          </th>
+          <th class="flowsheet-header-cell" colspan="2" data-header-year="3">
+            Year 3 - Junior
+          </th>
+          <th class="flowsheet-header-cell" colspan="2" data-header-year="4">
+            Year 4 - Junior
+          </th>
+          <th class="flowsheet-header-cell" colspan="2" data-header-year="5">
+            Year 5 - Senior
+          </th>
+        </tr>
+        <tr>
+          <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="1">
+            Fall
+          </th>
+          <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="2">
+            Spring
+          </th>
+          <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="3">
+            Fall
+          </th>
+          <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="4">
+            Spring
+          </th>
+          <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="5">
+            Fall
+          </th>
+          <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="6">
+            Spring
+          </th>
+          <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="7">
+            Fall
+          </th>
+          <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="8">
+            Spring
+          </th>
+          <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="9">
+            Fall
+          </th>
+          <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="10">
+            Spring
+          </th>
+        </tr>
+      </thead>
+      <tbody id="table-body-flowsheet"></tbody>
+    </table>
+    <h2>Total credit hours for each semester</h2>
+    <table id="credit-table" cellspacing="0">
+      <thead>
+        <tr id="credit-table-summary">
+          <th colspan="2" class="credit-header-cell">year 1</th>
+          <th colspan="2" class="credit-header-cell">year 2</th>
+          <th colspan="2" class="credit-header-cell">year 3</th>
+          <th colspan="2" class="credit-header-cell">year 4</th>
+          <th colspan="2" class="credit-header-cell">year 5</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="credit-table-row"></tr>
+      </tbody>
+    </table>
+  </main>
+  <aside id="subject-info-container">
+    <div id="subject-info-white">
+      <span id="subject-info-icon-container"><img src="./assets/images/xmark-solid.svg" id="subject-info-icon"
+          onclick="unmountSubjectInfo()" /></span>
+      <div id="subject-info-main"></div>
+    </div>
+  </aside>
+  <br />
+  <hr />
+  <br />
+
+  <div id="flowsheet-descr">
+    <h3>What colors represent:</h3>
+    <div class="descr-div" id="desc-current">
+      <span class="circle-indicator" id="current-indicator"></span> Current
+      subject description
+      <i class="desc-icon"><img src="./assets/images/info-circle.svg" /></i>
+    </div>
+    <div class="descr-div" id="desc-req">
+      <span class="circle-indicator" id="req-indicator"></span> Requirements
+      for the current subject
+      <i class="desc-icon small-desc-icon no-invert-desc-icon"><img src="./assets/images/arrow-left.svg" /></i>
+    </div>
+    <div class="descr-div" id="desc-dependent">
+      <span class="circle-indicator" id="dependent-indicator"></span> Subjects
+      that are open after this subject is complete
+      <i class="desc-icon small-desc-icon"><img src="./assets/images/arrow-right.svg" /></i>
+    </div>
+    <div class="descr-div" id="desc-training">
+      <span class="circle-indicator" id="training-indicator"></span> Training
+    </div>
+    <div class="descr-div" id="desc-optional">
+      <span class="circle-indicator" id="optional-indicator"></span> Optional
+      subjects, you can take only one of them
+    </div>
+  </div>
+  <br />
+  <hr />
+
+  <footer>
+    <p>
+      Made with ❤️ by
+      <a href="https://www.linkedin.com/in/ezz-aldyn-husen/">Ezzeldin Husen</a>
+    </p>
+    <p>Contributors:</p>
+    <ul>
+      <p>
+        💫
+        <a href="https://www.linkedin.com/in/moyeh04">Mohamed Yehia</a>
+      </p>
+      <!-- INSERT CONTRIBUTORS NAMES HERE -->
+    </ul>
+  </footer>
+  <script src="js/util.js"></script>
+  <script src="js/MirectedGraph.js"></script>
+  <script src="js/tableController.js"></script>
+  <script src="js/cellController.js"></script>
+  <script src="js/gpa/index.js"></script>
+  <script src="js/gpa/gpaInterfaceController.js"></script>
+  <script src="js/index.js"></script>
 </body>
+
 </html>
