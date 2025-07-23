@@ -203,7 +203,7 @@
     {
       "semester": 4,
       "type": 1,
-      "id": "ELCn160",
+      "id": "CMPn160",
       "subjectName": "Summer Training for level one",
       "creditHours": 0,
       "requirements": ["ELCn060"]
@@ -222,7 +222,7 @@
       "id": "ELCn212",
       "subjectName": "Microelectronic Circuits-1",
       "creditHours": 3,
-      "requirements": ["ELCn115", "ELCn160"]
+      "requirements": ["ELCn115", "CMPn160"]
     },
     {
       "semester": 5,
@@ -333,10 +333,10 @@
     {
       "semester": 6,
       "type": 1,
-      "id": "ELCn260",
+      "id": "CMPn260",
       "subjectName": "Industrial Training -1",
       "creditHours": 0,
-      "requirements": ["ELCn160"]
+      "requirements": ["CMPn160"]
     }
   ],
   [
@@ -500,7 +500,7 @@
       "id": "CMPn360",
       "subjectName": "Industrial Training -2",
       "creditHours": 0,
-      "requirements": ["ELCn260"],
+      "requirements": ["CMPn260"],
       "conditions": ["99 Credits"]
     }
   ],
@@ -574,7 +574,7 @@
       "semester": 10,
       "id": "CMPn422",
       "subjectName": "Artificial Intelligence",
-      "creditHours": 3,
+      "creditHours": 4,
       "requirements": ["CMPn325"]
     },
     {

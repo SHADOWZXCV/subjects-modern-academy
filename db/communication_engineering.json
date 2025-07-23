@@ -545,7 +545,7 @@
       "semester": 9,
       "id": "ELCn460",
       "subjectName": "Project-2 a",
-      "creditHours": 3,
+      "creditHours": 2,
       "requirements": ["ELCn361", "ELCn360"],
       "conditions": [
         "GPA > 2: 120 Credits/ 123 Credits",
@@ -563,17 +563,16 @@
     },
     {
       "semester": 10,
+      "id": "ELCn423",
+      "subjectName": "Communications-4 (Advanced Communications Systems)",
+      "creditHours": 4,
+      "requirements": ["ELCn321"]
+    },
+    {
+      "semester": 10,
       "id": 128,
-      "optionalSet": ["ELCn423", "ELCn433", "ELCn434"],
+      "optionalSet": ["ELCn433", "ELCn434"],
       "list": [
-        {
-          "semester": 10,
-          "id": "ELCn423",
-          "subjectName": "Communications-4 (Advanced Communications Systems)",
-          "creditHours": 4,
-          "requirements": ["ELCn321"],
-          "optionalSetId": 128
-        },
         {
           "semester": 10,
           "id": "ELCn433",
