@@ -342,10 +342,10 @@
   [
     {
       "semester": 7,
-      "id": "ELCn215",
-      "subjectName": "Communications-1",
+      "id": "CMPn322",
+      "subjectName": "Computer Graphics and Man Machine Interface",
       "creditHours": 3,
-      "requirements": ["ELCn211"]
+      "requirements": ["CMPn010", "CMPn321"]
     },
     {
       "semester": 7,
@@ -356,18 +356,10 @@
     },
     {
       "semester": 7,
-      "id": "CMPn361",
-      "subjectName": "Project-1",
-      "creditHours": 2,
-      "requirements": ["ENGn213c"],
-      "conditions": ["99 Credits"]
-    },
-    {
-      "semester": 7,
-      "id": "CMPn310",
-      "subjectName": "Microprocessor Based Systems.",
+      "id": "CMPn424",
+      "subjectName": "Computer Modeling and Simulation",
       "creditHours": 3,
-      "requirements": ["CMPn111"]
+      "requirements": ["CMPn210"]
     },
     {
       "semester": 7,
@@ -375,6 +367,14 @@
       "subjectName": "Electrical Power Engineering",
       "creditHours": 3,
       "requirements": ["ELCn112"]
+    },
+    {
+      "semester": 7,
+      "id": "CMPn361",
+      "subjectName": "Project-1",
+      "creditHours": 2,
+      "requirements": ["ENGn213c"],
+      "conditions": ["99 Credits"]
     },
     {
       "semester": 7,
@@ -411,10 +411,10 @@
   [
     {
       "semester": 8,
-      "id": "CMPn322",
-      "subjectName": "Computer Graphics and Man Machine Interface",
+      "id": "ELCn215",
+      "subjectName": "Communications-1",
       "creditHours": 3,
-      "requirements": ["CMPn010", "CMPn321"]
+      "requirements": ["ELCn211"]
     },
     {
       "semester": 8,
@@ -425,28 +425,28 @@
     },
     {
       "semester": 8,
-      "id": "CMPn326",
-      "subjectName": "Logic Design -2",
+      "id": "CMPn310",
+      "subjectName": "Microprocessor Based Systems.",
       "creditHours": 3,
       "requirements": ["CMPn111"]
     },
     {
       "semester": 8,
       "id": 124,
-      "optionalSet": ["CMPn333", "CMPn335", "CMPn433"],
+      "optionalSet": ["CMPn335", "CMPn437", "CMPn433"],
       "list": [
-        {
-          "semester": 8,
-          "id": "CMPn333",
-          "subjectName": "Embedded Systems",
-          "creditHours": 3,
-          "requirements": ["CMPn310"],
-          "optionalSetId": 124
-        },
         {
           "semester": 8,
           "id": "CMPn335",
           "subjectName": "Operating Systems",
+          "creditHours": 3,
+          "requirements": ["CMPn321"],
+          "optionalSetId": 124
+        },
+        {
+          "semester": 8,
+          "id": "CMPn437",
+          "subjectName": "Computer Interfacing",
           "creditHours": 3,
           "requirements": ["CMPn321"],
           "optionalSetId": 124
@@ -484,10 +484,10 @@
         },
         {
           "semester": 8,
-          "id": "CMPn434",
-          "subjectName": "Computer Performance",
+          "id": "CMPn432",
+          "subjectName": "Advanced Database Systems",
           "creditHours": 3,
-          "requirements": ["CMPn110"],
+          "requirements": ["CMPn323"],
           "optionalSetId": 125
         }
       ]
@@ -507,8 +507,15 @@
   [
     {
       "semester": 9,
+      "id": "CMPn421",
+      "subjectName": "Distributed Computer Systems",
+      "creditHours": 3,
+      "requirements": ["CMPn324"]
+    },
+    {
+      "semester": 9,
       "id": 126,
-      "optionalSet": ["CMPn332", "CMPn334", "CMPn431"],
+      "optionalSet": ["CMPn332", "CMPn439", "CMPn431"],
       "list": [
         {
           "semester": 9,
@@ -520,10 +527,10 @@
         },
         {
           "semester": 9,
-          "id": "CMPn334",
-          "subjectName": "Multimedia",
+          "id": "CMPn439",
+          "subjectName": "Real Time Computing",
           "creditHours": 3,
-          "requirements": ["CMPn110"],
+          "requirements": ["CMPn010"],
           "optionalSetId": 126
         },
         {
@@ -535,13 +542,6 @@
           "optionalSetId": 126
         }
       ]
-    },
-    {
-      "semester": 9,
-      "id": "CMPn421",
-      "subjectName": "Distributed Computer Systems",
-      "creditHours": 3,
-      "requirements": ["CMPn324"]
     },
     {
       "semester": 9,
@@ -579,22 +579,30 @@
     },
     {
       "semester": 10,
-      "id": "CMPn424",
-      "subjectName": "Computer Modeling and Simulation",
+      "id": "CMPn326",
+      "subjectName": "Logic Design -2",
       "creditHours": 3,
-      "requirements": ["CMPn210"]
+      "requirements": ["CMPn111"]
     },
     {
       "semester": 10,
       "id": 128,
-      "optionalSet": ["CMPn435", "CMPn436", "CMPn437", "CMPn438"],
+      "optionalSet": ["CMPn438", "CMPn333", "CMPn436", "CMPn435"],
       "list": [
         {
           "semester": 10,
-          "id": "CMPn435",
-          "subjectName": "Computer Systems Technology",
+          "id": "CMPn438",
+          "subjectName": "Pattern Recognition and Neural Networks",
           "creditHours": 3,
-          "requirements": ["CMPn321"],
+          "requirements": ["MTHn103", "CMPn310"],
+          "optionalSetId": 128
+        },
+        {
+          "semester": 10,
+          "id": "CMPn333",
+          "subjectName": "Embedded Systems",
+          "creditHours": 3,
+          "requirements": ["CMPn310"],
           "optionalSetId": 128
         },
         {
@@ -607,18 +615,10 @@
         },
         {
           "semester": 10,
-          "id": "CMPn437",
-          "subjectName": "Computer Interfacing",
+          "id": "CMPn435",
+          "subjectName": "Computer Systems Technology",
           "creditHours": 3,
           "requirements": ["CMPn321"],
-          "optionalSetId": 128
-        },
-        {
-          "semester": 10,
-          "id": "CMPn438",
-          "subjectName": "Pattern Recognition and Neural Networks",
-          "creditHours": 3,
-          "requirements": ["MTHn103", "CMPn310"],
           "optionalSetId": 128
         }
       ]
@@ -626,7 +626,7 @@
     {
       "semester": 10,
       "id": 129,
-      "optionalSet": ["ELCn425", "CMPn432", "CMPn439"],
+      "optionalSet": ["ELCn425", "CMPn334", "CMPn434"],
       "list": [
         {
           "semester": 10,
@@ -638,18 +638,18 @@
         },
         {
           "semester": 10,
-          "id": "CMPn432",
-          "subjectName": "Advanced Database Systems",
+          "id": "CMPn334",
+          "subjectName": "Multimedia",
           "creditHours": 3,
-          "requirements": ["CMPn323"],
+          "requirements": ["CMPn110"],
           "optionalSetId": 129
         },
         {
           "semester": 10,
-          "id": "CMPn439",
-          "subjectName": "Real Time Computing",
+          "id": "CMPn434",
+          "subjectName": "Computer Performance",
           "creditHours": 3,
-          "requirements": ["CMPn010"],
+          "requirements": ["CMPn110"],
           "optionalSetId": 129
         }
       ]
