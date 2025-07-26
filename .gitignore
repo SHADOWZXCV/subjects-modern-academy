@@ -1,0 +1,4 @@
+# VS Code (keep settings.json for shared spell check words)
+.vscode/
+
+!.vscode/settings.json
