@@ -292,7 +292,7 @@
     },
     {
       "semester": 6,
-      "id": "ENGn213",
+      "id": "ENGn213c",
       "subjectName": "Advanced Computer Systems Implementation",
       "creditHours": 3,
       "requirements": ["CMPn010"]
@@ -347,7 +347,7 @@
     },
     {
       "semester": 7,
-      "id": "ENGn312a",
+      "id": "ENGn312e",
       "subjectName": "Engineering Laws and Professional Ethics",
       "creditHours": 2,
       "requirements": []
@@ -367,7 +367,7 @@
         },
         {
           "semester": 7,
-          "id": "ENGn311",
+          "id": "ENGn311a",
           "optionalSetId": 123,
           "subjectName": "Engineering Economy",
           "creditHours": 2,
@@ -460,7 +460,7 @@
       "list": [
         {
           "semester": 8,
-          "id": "GENn451b",
+          "id": "GENn451e",
           "subjectName": "Environmental Effects of Electromagnetic Waves",
           "creditHours": 2,
           "requirements": [],
@@ -476,7 +476,7 @@
         },
         {
           "semester": 8,
-          "id": "GENn453",
+          "id": "GENn453e",
           "subjectName": "Marketing",
           "creditHours": 2,
           "requirements": [],

@@ -391,7 +391,7 @@
         },
         {
           "semester": 7,
-          "id": "ENGn311",
+          "id": "ENGn311a",
           "subjectName": "Engineering Economy",
           "creditHours": 2,
           "requirements": [],
@@ -552,7 +552,7 @@
     },
     {
       "semester": 9,
-      "id": "ENGn312a",
+      "id": "ENGn312c",
       "subjectName": "Engineering Laws and Professional Ethics",
       "creditHours": 2,
       "requirements": []
