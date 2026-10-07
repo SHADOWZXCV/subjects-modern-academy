@@ -1,0 +1,661 @@
+[
+  [
+    {
+      "semester": 1,
+      "id": "MNFn003",
+      "subjectName": "Principles of Production Engineering",
+      "creditHours": 3,
+      "requirements": []
+    },
+    {
+      "semester": 1,
+      "id": "MNFn001",
+      "subjectName": "Engineering Graphics-1",
+      "creditHours": 2,
+      "requirements": []
+    },
+    {
+      "semester": 1,
+      "id": "MECn001",
+      "subjectName": "Mechanics-1",
+      "creditHours": 2,
+      "requirements": []
+    },
+    {
+      "semester": 1,
+      "id": "CHEn001",
+      "subjectName": "Chemistry",
+      "creditHours": 3,
+      "requirements": []
+    },
+    {
+      "semester": 1,
+      "id": "PHYn001",
+      "subjectName": "Physics-1",
+      "creditHours": 3,
+      "requirements": []
+    },
+    {
+      "semester": 1,
+      "id": "MTHn001",
+      "subjectName": "Mathematics-1 (Algebra and Calculus)",
+      "creditHours": 3,
+      "requirements": []
+    },
+    {
+      "semester": 1,
+      "id": "GENn042",
+      "subjectName": "English Language",
+      "creditHours": 2,
+      "requirements": []
+    }
+  ],
+  [
+    {
+      "semester": 2,
+      "id": "MNFn002",
+      "subjectName": "Engineering Graphics-2",
+      "creditHours": 2,
+      "requirements": ["MNFn001"]
+    },
+    {
+      "semester": 2,
+      "id": "MECn002",
+      "subjectName": "Mechanics-2",
+      "creditHours": 2,
+      "requirements": ["MECn001"]
+    },
+    {
+      "semester": 2,
+      "id": "CMPn010",
+      "subjectName": "Program Design and Computer Languages",
+      "creditHours": 4,
+      "requirements": []
+    },
+    {
+      "semester": 2,
+      "id": "PHYn002",
+      "subjectName": "Physics-2",
+      "creditHours": 3,
+      "requirements": ["PHYn001"]
+    },
+    {
+      "semester": 2,
+      "id": "MTHn002",
+      "subjectName": "Mathematics-2",
+      "creditHours": 3,
+      "requirements": ["MTHn001"]
+    },
+    {
+      "semester": 2,
+      "id": "GENn041",
+      "subjectName": "Contemporary Social Issues",
+      "creditHours": 2,
+      "requirements": []
+    },
+    {
+      "semester": 2,
+      "id": "GENn043",
+      "subjectName": "History of Engineering and Technology",
+      "creditHours": 2,
+      "requirements": []
+    }
+  ],
+  [
+    {
+      "semester": 2,
+      "type": 1,
+      "id": "MNFn060",
+      "subjectName": "Summer Training for level zero",
+      "creditHours": 0,
+      "requirements": []
+    }
+  ],
+  [
+    {
+      "semester": 3,
+      "id": "MNFn111",
+      "subjectName": "Mechanics of Materials",
+      "creditHours": 3,
+      "requirements": ["MECn001"]
+    },
+    {
+      "semester": 3,
+      "id": "MNFn112",
+      "subjectName": "Fundamentals of Material Science",
+      "creditHours": 3,
+      "requirements": []
+    },
+    {
+      "semester": 3,
+      "id": "MNFn113",
+      "subjectName": "Mechanics of Machines-1",
+      "creditHours": 2,
+      "requirements": ["MECn002"]
+    },
+    {
+      "semester": 3,
+      "id": "MNFn114",
+      "subjectName": "Machine Drawing-1",
+      "creditHours": 3,
+      "requirements": ["MNFn002", "MNFn060"]
+    },
+    {
+      "semester": 3,
+      "id": "MTHn103",
+      "subjectName": "Mathematics -3(Differential Equations and Transforms).",
+      "creditHours": 3,
+      "requirements": ["MTHn002"]
+    },
+    {
+      "semester": 3,
+      "id": "GENn142",
+      "subjectName": "Technical Report Writing.",
+      "creditHours": 2,
+      "requirements": []
+    }
+  ],
+  [
+    {
+      "semester": 4,
+      "id": "MNFn122",
+      "subjectName": "Materials Technology and Testing",
+      "creditHours": 3,
+      "requirements": ["MNFn111", "MNFn112"]
+    },
+    {
+      "semester": 4,
+      "id": "MNFn121",
+      "subjectName": "Metal Cutting Processes",
+      "creditHours": 3,
+      "requirements": ["MNFn003"]
+    },
+    {
+      "semester": 4,
+      "id": "MNFn115",
+      "subjectName": "Mechanics of Machines-2",
+      "creditHours": 2,
+      "requirements": ["MNFn113"]
+    },
+    {
+      "semester": 4,
+      "id": "MNFn116",
+      "subjectName": "Machine Drawing-2",
+      "creditHours": 3,
+      "requirements": ["MNFn114"]
+    },
+    {
+      "semester": 4,
+      "id": "MTHn105",
+      "subjectName": "Math-5 (Numerical Analysis)",
+      "creditHours": 3,
+      "requirements": ["MTHn103"]
+    },
+    {
+      "semester": 4,
+      "id": "GENn141a",
+      "subjectName": "Presentation Skills.",
+      "creditHours": 2,
+      "requirements": []
+    }
+  ],
+  [
+    {
+      "semester": 4,
+      "type": 1,
+      "id": "MNFn160",
+      "subjectName": "Summer training for level one",
+      "creditHours": 0,
+      "requirements": ["MNFn060"]
+    }
+  ],
+  [
+    {
+      "semester": 5,
+      "id": "MNFn211",
+      "subjectName": "Fluid Mechanics",
+      "creditHours": 3,
+      "requirements": ["MTHn002"]
+    },
+    {
+      "semester": 5,
+      "id": "MNFn221",
+      "subjectName": "Metals Cutting Theory",
+      "creditHours": 3,
+      "requirements": ["MNFn121"]
+    },
+    {
+      "semester": 5,
+      "id": "MNFn222",
+      "subjectName": "MachineDesign-1",
+      "creditHours": 3,
+      "requirements": ["MNFn116"]
+    },
+    {
+      "semester": 5,
+      "id": "ENGn213a",
+      "subjectName": "Advanced Computer Systems Implementation",
+      "creditHours": 3,
+      "requirements": ["CMPn010"]
+    },
+    {
+      "semester": 5,
+      "id": "MTHn209",
+      "subjectName": "Mathematics 9 (Applications of Advanced Calculus)",
+      "creditHours": 3,
+      "requirements": ["MTHn103"]
+    }
+  ],
+  [
+    {
+      "semester": 6,
+      "id": "MNFn214",
+      "subjectName": "Thermodynamics",
+      "creditHours": 3,
+      "requirements": ["PHYn002"]
+    },
+    {
+      "semester": 6,
+      "id": "MNFn223",
+      "subjectName": "Foundry Technology",
+      "creditHours": 3,
+      "requirements": ["MNFn112"]
+    },
+    {
+      "semester": 6,
+      "id": "MNFn213",
+      "subjectName": "Computer Applications",
+      "creditHours": 2,
+      "requirements": ["ENGn213a"]
+    },
+    {
+      "semester": 6,
+      "id": "MNFn224",
+      "subjectName": "Machine Design-2",
+      "creditHours": 3,
+      "requirements": ["MNFn222"]
+    },
+    {
+      "semester": 6,
+      "id": "MNFn261",
+      "subjectName": "Seminar-1.",
+      "creditHours": 1,
+      "requirements": ["GENn141a", "GENn142"],
+      "conditions": ["Complete 66 credit hours"]
+    },
+    {
+      "semester": 6,
+      "id": "MTHn107",
+      "subjectName": "Mathematics -7 (Introduction to Prob. &Statistics)",
+      "creditHours": 3,
+      "requirements": ["MTHn002"]
+    },
+    {
+      "semester": 6,
+      "id": 1,
+      "optionalSet": ["GENn351c", "GENn352", "GENn353"],
+      "list": [
+        {
+          "semester": 6,
+          "id": "GENn351c",
+          "subjectName": "Elective1 Technical English.",
+          "creditHours": 2,
+          "requirements": ["GENn042"],
+          "optionalSetId": 1
+        },
+        {
+          "semester": 6,
+          "id": "GENn352",
+          "subjectName": "Elective1 Risk Management .",
+          "creditHours": 2,
+          "requirements": [],
+          "optionalSetId": 1
+        },
+        {
+          "semester": 6,
+          "id": "GENn353",
+          "subjectName": "Elective1 Industrial Psychology",
+          "creditHours": 2,
+          "requirements": [],
+          "optionalSetId": 1
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "semester": 6,
+      "type": 1,
+      "id": "MNFn260",
+      "subjectName": "Industrial Training -1",
+      "creditHours": 0,
+      "requirements": ["MNFn160"],
+      "conditions": ["66 Credits"]
+    }
+  ],
+  [
+    {
+      "semester": 7,
+      "id": "MNFn225",
+      "subjectName": "Engineering Metrology",
+      "creditHours": 2,
+      "requirements": ["MNFn121"]
+    },
+    {
+      "semester": 7,
+      "id": "ELCn216",
+      "subjectName": "Electro Engineering",
+      "creditHours": 3,
+      "requirements": ["PHYn002"]
+    },
+    {
+      "semester": 7,
+      "id": "MNFn311",
+      "subjectName": "Mechanical Measurements",
+      "creditHours": 3,
+      "requirements": ["MNFn111"]
+    },
+    {
+      "semester": 7,
+      "id": "MNFn321",
+      "subjectName": "Joining Processes",
+      "creditHours": 3,
+      "requirements": ["MNFn112"]
+    },
+    {
+      "semester": 7,
+      "id": "MNFn322",
+      "subjectName": "Computer Numerical Control, CNC Machines",
+      "creditHours": 3,
+      "requirements": ["MNFn213", "MNFn121"]
+    },
+    {
+      "semester": 7,
+      "id": "MNFn325",
+      "subjectName": "Modern Manufacturing Methods",
+      "creditHours": 3,
+      "requirements": ["MNFn221"]
+    },
+    {
+      "semester": 7,
+      "id": "MNFn262",
+      "subjectName": "Seminar-2.",
+      "creditHours": 1,
+      "requirements": ["MNFn261"]
+    }
+  ],
+  [
+    {
+      "semester": 8,
+      "id": "MNFn323",
+      "subjectName": "Computer Aided Design (CAD)",
+      "creditHours": 3,
+      "requirements": ["MNFn224"]
+    },
+    {
+      "semester": 8,
+      "id": "ELCn217",
+      "subjectName": "Electric Machines",
+      "creditHours": 3,
+      "requirements": ["ELCn216"]
+    },
+    {
+      "semester": 8,
+      "id": "MNFn312",
+      "subjectName": "Industrial Operation Research",
+      "creditHours": 3,
+      "requirements": []
+    },
+    {
+      "semester": 8,
+      "id": "MNFn313",
+      "subjectName": "Automatic Control",
+      "creditHours": 3,
+      "requirements": ["MTHn103"]
+    },
+    {
+      "semester": 8,
+      "id": "MNFn361",
+      "subjectName": "Project-1",
+      "creditHours": 2,
+      "requirements": ["MNFn262"]
+    }
+  ],
+  [
+    {
+      "semester": 8,
+      "type": 1,
+      "id": "MNFn360",
+      "subjectName": "Industrial Training -2",
+      "creditHours": 0,
+      "requirements": ["MNFn260"],
+      "conditions": ["99 Credits"]
+    }
+  ],
+  [
+    {
+      "semester": 9,
+      "id": "MNFn421",
+      "subjectName": "Computer Aided Manufacturing (CAM)",
+      "creditHours": 3,
+      "requirements": ["MNFn322"]
+    },
+    {
+      "semester": 9,
+      "id": "MNFn422",
+      "subjectName": "Hydraulic Power Systems",
+      "creditHours": 3,
+      "requirements": ["MNFn211"]
+    },
+    {
+      "semester": 9,
+      "id": 3,
+      "optionalSet": ["MNFn331", "MNFn332", "MNFn333"],
+      "list": [
+        {
+          "semester": 9,
+          "id": "MNFn331",
+          "subjectName": "Elective3 Heat Transfer",
+          "creditHours": 2,
+          "requirements": ["MNFn214"],
+          "optionalSetId": 3
+        },
+        {
+          "semester": 9,
+          "id": "MNFn332",
+          "subjectName": "Elective3 Mechanical Vibrations",
+          "creditHours": 2,
+          "requirements": ["MNFn115"],
+          "optionalSetId": 3
+        },
+        {
+          "semester": 9,
+          "id": "MNFn333",
+          "subjectName": "Elective3 Production and Operations Management",
+          "creditHours": 2,
+          "requirements": [],
+          "optionalSetId": 3
+        }
+      ]
+    },
+    {
+      "semester": 9,
+      "id": "GENn341c",
+      "subjectName": "Project Management.",
+      "creditHours": 2,
+      "requirements": []
+    },
+    {
+      "semester": 9,
+      "id": "ENGn311a",
+      "subjectName": "Engineering Economy",
+      "creditHours": 2,
+      "requirements": []
+    },
+    {
+      "semester": 9,
+      "id": 2,
+      "optionalSet": ["GENn451a", "GENn452a", "GENn453"],
+      "list": [
+        {
+          "semester": 9,
+          "id": "GENn451a",
+          "subjectName": "Elective2 Environmentsl Effects of Electromagnetic Waves.",
+          "creditHours": 2,
+          "requirements": [],
+          "optionalSetId": 2
+        },
+        {
+          "semester": 9,
+          "id": "GENn452a",
+          "subjectName": "Elective2 Civilization and heritage",
+          "creditHours": 2,
+          "requirements": [],
+          "optionalSetId": 2
+        },
+        {
+          "semester": 9,
+          "id": "GENn453",
+          "subjectName": "Elective2 Marketing",
+          "creditHours": 2,
+          "requirements": [],
+          "optionalSetId": 2
+        }
+      ]
+    },
+    {
+      "semester": 9,
+      "id": "MNFn461",
+      "subjectName": "Project-2a",
+      "creditHours": 2,
+      "requirements": ["MNFn361"],
+      "conditions": [
+        "GPA > 2 (printed figures tentatively read as 138/135)",
+        "GPA < 2 (printed figures tentatively read as 146/143)"
+      ]
+    }
+  ],
+  [
+    {
+      "semester": 10,
+      "id": "MNFn423",
+      "subjectName": "Production Aids Design",
+      "creditHours": 2,
+      "requirements": ["MNFn221"]
+    },
+    {
+      "semester": 10,
+      "id": "MNFn324",
+      "subjectName": "Advanced Materials and Composite",
+      "creditHours": 3,
+      "requirements": ["MNFn122"]
+    },
+    {
+      "semester": 10,
+      "id": 4,
+      "optionalSet": ["MNFn434", "MNFn438", "MNFn437"],
+      "list": [
+        {
+          "semester": 10,
+          "id": "MNFn434",
+          "subjectName": "Elective4 Automation in Production & CIM",
+          "creditHours": 3,
+          "requirements": ["MNFn421"],
+          "optionalSetId": 4
+        },
+        {
+          "semester": 10,
+          "id": "MNFn438",
+          "subjectName": "Elective4 Advanced casting techniques",
+          "creditHours": 3,
+          "requirements": ["MNFn223"],
+          "optionalSetId": 4
+        },
+        {
+          "semester": 10,
+          "id": "MNFn437",
+          "subjectName": "Elective4 Electro- Hyd. and Pneumatic Systems",
+          "creditHours": 3,
+          "requirements": ["MNFn313", "MNFn422"],
+          "optionalSetId": 4
+        }
+      ]
+    },
+    {
+      "semester": 10,
+      "id": 5,
+      "optionalSet": ["MNFn430", "MNFn431", "MNFn435"],
+      "list": [
+        {
+          "semester": 10,
+          "id": "MNFn430",
+          "subjectName": "Elective5 Advanced Forming Techniques",
+          "creditHours": 3,
+          "requirements": ["MNFn122"],
+          "optionalSetId": 5
+        },
+        {
+          "semester": 10,
+          "id": "MNFn431",
+          "subjectName": "Elective5 Modeling and Simulation",
+          "creditHours": 3,
+          "requirements": ["MNFn213"],
+          "optionalSetId": 5
+        },
+        {
+          "semester": 10,
+          "id": "MNFn435",
+          "subjectName": "Elective5Advanced Facility Planning",
+          "creditHours": 3,
+          "requirements": ["MNFn312"],
+          "optionalSetId": 5
+        }
+      ]
+    },
+    {
+      "semester": 10,
+      "id": 6,
+      "optionalSet": ["MNFn424", "MNFn432", "MNFn436"],
+      "list": [
+        {
+          "semester": 10,
+          "id": "MNFn424",
+          "subjectName": "Elective 6: Idustrial Thermal Systems",
+          "creditHours": 3,
+          "requirements": ["MNFn214"],
+          "optionalSetId": 6
+        },
+        {
+          "semester": 10,
+          "id": "MNFn432",
+          "subjectName": "Elective 6: Failure Analysis & Fracture",
+          "creditHours": 3,
+          "requirements": ["MNFn111"],
+          "optionalSetId": 6
+        },
+        {
+          "semester": 10,
+          "id": "MNFn436",
+          "subjectName": "Elective 6: Industrial Robotics",
+          "creditHours": 3,
+          "requirements": ["MNFn115", "MNFn313"],
+          "optionalSetId": 6
+        }
+      ]
+    },
+    {
+      "semester": 10,
+      "id": "ENGn312a",
+      "subjectName": "Engineering Laws and Professional Ethics",
+      "creditHours": 2,
+      "requirements": []
+    },
+    {
+      "semester": 10,
+      "id": "MNFn462",
+      "subjectName": "Project-2b",
+      "creditHours": 2,
+      "requirements": ["MNFn461"]
+    }
+  ]
+]
