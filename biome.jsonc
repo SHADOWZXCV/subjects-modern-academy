@@ -1,0 +1,108 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
+  // --- VCS -------------------------------------------------------------------
+  // Respects .gitignore so Biome skips generated/vendor files automatically.
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  // --- GLOBAL FORMATTER ------------------------------------------------------
+  // Repeat language-specific settings below to keep formatting predictable.
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 80,
+    "lineEnding": "lf"
+  },
+  // --- LINTER ----------------------------------------------------------------
+  "linter": {
+    "enabled": true,
+    "rules": {
+      // Start from Biome's recommended ruleset, then layer semistandard on top.
+      "recommended": true,
+      "style": {
+        // prefer-const — use const whenever a binding is never reassigned
+        "useConst": "error",
+        // prefer-template — use `Hello ${name}` instead of 'Hello ' + name
+        "useTemplate": "error",
+        // no-yoda — write (color === 'red'), not ('red' === color)
+        "noYodaExpression": "error",
+        // TypeScript-specific, not a semistandard rule but good practice
+        "noNonNullAssertion": "warn",
+        // camelcase — semistandard requires camelCase for variables and functions
+        "useNamingConvention": {
+          "level": "error",
+          "options": {
+            "strictCase": false,
+            "conventions": [
+              {
+                "selector": {
+                  "kind": "variable"
+                },
+                "formats": ["camelCase", "CONSTANT_CASE", "PascalCase"]
+              },
+              {
+                "selector": {
+                  "kind": "function"
+                },
+                "formats": ["camelCase", "PascalCase"]
+              }
+            ]
+          }
+        }
+      },
+      "suspicious": {
+        // eqeqeq — always use ===, with one exception: `value == null` is
+        // allowed as a concise check for both null and undefined
+        "noDoubleEquals": {
+          "level": "error",
+          "options": {
+            "ignoreNull": true
+          }
+        },
+        // no-var — always use let or const, never var
+        "noVar": "error",
+        // TypeScript-specific, not a semistandard rule but good practice
+        "noExplicitAny": "warn"
+      },
+      "complexity": {
+        // semistandard has no opinion on forEach vs for-of; keep off
+        "noForEach": "off"
+      },
+      "correctness": {
+        // no-unused-vars — every declared variable must be used
+        "noUnusedVariables": "error",
+        // keeps imports clean; not an explicit semistandard rule but consistent
+        "noUnusedImports": "error"
+      }
+    }
+  },
+  // --- JAVASCRIPT / TYPESCRIPT FORMATTER ------------------------------------
+  // Explicit settings match the project's existing JavaScript style.
+  "javascript": {
+    "formatter": {
+      "indentStyle": "space", // semistandard: 2-space indentation
+      "indentWidth": 2,
+      "lineWidth": 80,
+      "lineEnding": "lf",
+      "quoteStyle": "single", // semistandard: single quotes
+      "semicolons": "always", // the whole point of semistandard
+      "trailingCommas": "none", // semistandard: no trailing commas
+      "arrowParentheses": "always",
+      "bracketSpacing": true // semistandard: spaces inside { like: this }
+    }
+  },
+  // --- JSON FORMATTER --------------------------------------------------------
+  // JSON retains double quotes and uses the same indentation and line width.
+  "json": {
+    "formatter": {
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineWidth": 80,
+      "lineEnding": "lf",
+      "trailingCommas": "none"
+    }
+  }
+}
