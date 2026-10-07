@@ -1,10 +1,10 @@
-function renderVertex(
+function renderVertex (
   prevCellPtr,
   currentCellPtr,
   vertex,
   isTrainingSem,
   rowPtr,
-  optionalId,
+  optionalId
 ) {
   let rowId = `sub-${currentCellPtr}`;
   let colId = `sem-${rowPtr}-sub-${currentCellPtr}`;
@@ -32,7 +32,7 @@ function renderVertex(
   return currentCellPtr;
 }
 
-function renderEmptyCell(rowPtr, currentCellPtr) {
+function renderEmptyCell (rowPtr, currentCellPtr) {
   const rowId = `sub-${currentCellPtr}`;
   const colId = `sem-${rowPtr}-sub-${currentCellPtr}`;
   let row = document.getElementById(rowId);
@@ -49,35 +49,35 @@ function renderEmptyCell(rowPtr, currentCellPtr) {
   cell.dataset.isEmpty = true;
 }
 
-function createCell(row, colId, vertex, optionalId) {
+function createCell (row, colId, vertex, optionalId) {
   const {
     id: subjectId,
     subjectName,
-    creditHours,
+    creditHours
   } = vertex ? vertex.vertex.data : {};
-  const cell = document.createElement("td");
-  const div = document.createElement("div");
-  const outerDiv = document.createElement("div");
+  const cell = document.createElement('td');
+  const div = document.createElement('div');
+  const outerDiv = document.createElement('div');
 
   div.innerHTML = !vertex
-    ? " "
+    ? ' '
     : `
     <b class="cell-subjectCode">${subjectId}</b><br>
     <p>${subjectName}</p>
     `;
-  div.className = "cell-text";
-  cell.className = "cell";
+  div.className = 'cell-text';
+  cell.className = 'cell';
   cell.id = colId;
 
   const iconsDiv = renderIcons(cell);
-  const creditHrs = document.createElement("span");
-  creditHrs.className = "cell-credit-hours";
+  const creditHrs = document.createElement('span');
+  creditHrs.className = 'cell-credit-hours';
 
-  creditHrs.innerHTML = vertex ? creditHours : "";
+  creditHrs.innerHTML = vertex ? creditHours : '';
 
   iconsDiv.appendChild(creditHrs);
 
-  outerDiv.className = "inner-cell-container";
+  outerDiv.className = 'inner-cell-container';
   outerDiv.appendChild(div);
   outerDiv.appendChild(iconsDiv);
   cell.appendChild(outerDiv);
@@ -94,22 +94,22 @@ function createCell(row, colId, vertex, optionalId) {
   return cell;
 }
 
-function renderIcons(cell) {
-  const div = document.createElement("div");
-  const leftIcon = document.createElement("i");
-  const rightIcon = document.createElement("i");
-  const aboutIcon = document.createElement("i");
-  const leftImg = document.createElement("img");
-  const rightImg = document.createElement("img");
-  const aboutImg = document.createElement("img");
+function renderIcons (cell) {
+  const div = document.createElement('div');
+  const leftIcon = document.createElement('i');
+  const rightIcon = document.createElement('i');
+  const aboutIcon = document.createElement('i');
+  const leftImg = document.createElement('img');
+  const rightImg = document.createElement('img');
+  const aboutImg = document.createElement('img');
 
-  div.className = "cell-icons-container";
-  leftImg.src = "./assets/images/arrow-left.svg";
-  leftImg.width = "10";
-  rightImg.src = "./assets/images/arrow-right.svg";
-  rightImg.width = "10";
-  aboutImg.src = "./assets/images/info-circle.svg";
-  aboutImg.width = "15";
+  div.className = 'cell-icons-container';
+  leftImg.src = './assets/images/arrow-left.svg';
+  leftImg.width = '10';
+  rightImg.src = './assets/images/arrow-right.svg';
+  rightImg.width = '10';
+  aboutImg.src = './assets/images/info-circle.svg';
+  aboutImg.width = '15';
 
   leftIcon.appendChild(leftImg);
   rightIcon.appendChild(rightImg);
@@ -121,9 +121,9 @@ function renderIcons(cell) {
   leftIcon.id = `left-icon-${iconId}`;
   rightIcon.id = `right-icon-${iconId}`;
   aboutIcon.id = `about-icon-${iconId}`;
-  leftIcon.className = "left-cell-icon";
-  rightIcon.className = "right-cell-icon";
-  aboutIcon.className = "about-cell-icon";
+  leftIcon.className = 'left-cell-icon';
+  rightIcon.className = 'right-cell-icon';
+  aboutIcon.className = 'about-cell-icon';
 
   div.appendChild(leftIcon);
   div.appendChild(rightIcon);
@@ -133,20 +133,20 @@ function renderIcons(cell) {
   return div;
 }
 
-function resetHighlightedCells() {
-  const current = document.querySelector("[data-current]");
-  const dependent = document.querySelectorAll("[data-dependent]");
-  const required = document.querySelectorAll("[data-required]");
+function resetHighlightedCells () {
+  const current = document.querySelector('[data-current]');
+  const dependent = document.querySelectorAll('[data-dependent]');
+  const required = document.querySelectorAll('[data-required]');
 
   if (!current) return;
 
-  const creditHrs = current.querySelector(".cell-credit-hours");
-  creditHrs.style.display = "none";
+  const creditHrs = current.querySelector('.cell-credit-hours');
+  creditHrs.style.display = 'none';
 
-  current.removeAttribute("data-current");
-  current.removeAttribute("data-is-Held");
-  [...dependent].map((elem) => elem.removeAttribute("data-dependent"));
-  [...required].map((elem) => elem.removeAttribute("data-required"));
+  current.removeAttribute('data-current');
+  current.removeAttribute('data-is-Held');
+  [...dependent].map((elem) => elem.removeAttribute('data-dependent'));
+  [...required].map((elem) => elem.removeAttribute('data-required'));
 
   const optionalSet = document.querySelectorAll(`[data-is-optional-sibling]`);
   [...optionalSet].forEach((element) => {
@@ -154,8 +154,8 @@ function resetHighlightedCells() {
   });
 }
 
-function highlightCell(cell, vertex, optionalId) {
-  const isAnythingHeld = document.querySelector("[data-is-held]");
+function highlightCell (cell, vertex, optionalId) {
+  const isAnythingHeld = document.querySelector('[data-is-held]');
   const isHeldEnabled = isHeld();
   let siblingVertex = vertex.vertex.next;
   let dirWeight = vertex.vertex.dirWeight;
@@ -163,7 +163,7 @@ function highlightCell(cell, vertex, optionalId) {
   // hold the state of the table if there is a held element
   if (cell.dataset.current || (isAnythingHeld && isHeldEnabled)) return;
 
-  if (isAnythingHeld) isAnythingHeld.removeAttribute("data-is-held");
+  if (isAnythingHeld) isAnythingHeld.removeAttribute('data-is-held');
 
   resetHighlightedCells();
 
@@ -173,20 +173,20 @@ function highlightCell(cell, vertex, optionalId) {
 
   cell.dataset.current = true;
 
-  const creditHrs = cell.querySelector(".cell-credit-hours");
-  creditHrs.style.display = "block";
+  const creditHrs = cell.querySelector('.cell-credit-hours');
+  creditHrs.style.display = 'block';
 
   // check for requirements and dependencies
   while (siblingVertex) {
     const elem = document.querySelector(
-      `[data-subject-id="${siblingVertex.data.id}"]`,
+      `[data-subject-id="${siblingVertex.data.id}"]`
     );
 
     // detects a bad graph connection, and wrong ids
 
     if (!elem) {
       console.log(
-        `There is no such subject with ID: ${siblingVertex.data.id}!`,
+        `There is no such subject with ID: ${siblingVertex.data.id}!`
       );
       break;
     }
@@ -203,7 +203,7 @@ function highlightCell(cell, vertex, optionalId) {
 
   if (optionalId) {
     const optionalSet = document.querySelectorAll(
-      `[data-optional-id="${optionalId}"]`,
+      `[data-optional-id="${optionalId}"]`
     );
     [...optionalSet].forEach((element) => {
       element.dataset.isOptionalSibling = true;
@@ -211,24 +211,24 @@ function highlightCell(cell, vertex, optionalId) {
   }
 }
 
-function attachCellActions(vertex, cell, optionalId) {
+function attachCellActions (vertex, cell, optionalId) {
   // add necessary data for hover action
   const {
     vertex: {
-      data: { id, semester, creditHours },
-    },
+      data: { id, semester, creditHours }
+    }
   } = vertex;
 
   cell.dataset.subjectId = id;
   cell.dataset.semester = semester;
   cell.dataset.creditHours = creditHours;
 
-  cell.addEventListener("mouseenter", (e) =>
-    highlightCell(cell, vertex, optionalId),
+  cell.addEventListener('mouseenter', (e) =>
+    highlightCell(cell, vertex, optionalId)
   );
-  cell.addEventListener("click", (e) => handleCellClick(e, vertex));
+  cell.addEventListener('click', (e) => handleCellClick(e, vertex));
 
-  cell.addEventListener("mouseleave", (e) => {
+  cell.addEventListener('mouseleave', (e) => {
     let siblingVertex = vertex.vertex.next;
     let dirWeight = vertex.vertex.dirWeight;
 
@@ -236,18 +236,18 @@ function attachCellActions(vertex, cell, optionalId) {
       return;
     }
 
-    e.target.removeAttribute("data-current");
+    e.target.removeAttribute('data-current');
 
-    const creditHrs = cell.querySelector(".cell-credit-hours");
-    creditHrs.style.display = "none";
+    const creditHrs = cell.querySelector('.cell-credit-hours');
+    creditHrs.style.display = 'none';
 
     while (siblingVertex) {
       const elem = document.querySelector(
-        `[data-subject-id="${siblingVertex.data.id}"]`,
+        `[data-subject-id="${siblingVertex.data.id}"]`
       );
       if (!elem) return;
-      if (dirWeight === DEPENDENT) elem.removeAttribute("data-required");
-      else if (dirWeight === REQUIRED) elem.removeAttribute("data-dependent");
+      if (dirWeight === DEPENDENT) elem.removeAttribute('data-required');
+      else if (dirWeight === REQUIRED) elem.removeAttribute('data-dependent');
 
       dirWeight = siblingVertex.dirWeight;
       siblingVertex = siblingVertex.next;
@@ -257,7 +257,7 @@ function attachCellActions(vertex, cell, optionalId) {
 
     if (optionalId) {
       const optionalSet = document.querySelectorAll(
-        `[data-optional-id="${optionalId}"]`,
+        `[data-optional-id="${optionalId}"]`
       );
       [...optionalSet].forEach((element) => {
         element.dataset.isOptionalSibling = false;
@@ -270,23 +270,23 @@ function attachCellActions(vertex, cell, optionalId) {
   });
 }
 
-function handleCellClick(e, vertex) {
+function handleCellClick (e, vertex) {
   // js/gpa/GPAInterfaceController
   if (GPA_MODE) return handleGPASelect(e, vertex.vertex.data.creditHours);
 
   return renderSubject(vertex);
 }
 
-function holdCells() {
-  const current = document.querySelector("[data-current]");
+function holdCells () {
+  const current = document.querySelector('[data-current]');
 
   if (!current) return;
 
   current.dataset.isHeld = true;
 }
 
-function releaseCells() {
-  const current = document.querySelector("[data-current]");
+function releaseCells () {
+  const current = document.querySelector('[data-current]');
 
   if (!current) return;
 
@@ -294,8 +294,8 @@ function releaseCells() {
 }
 
 // isHeld checkbox enabled
-function isHeld() {
-  const toggleTableState = document.getElementById("search-hold");
+function isHeld () {
+  const toggleTableState = document.getElementById('search-hold');
 
   if (!toggleTableState) return false;
 
@@ -304,18 +304,18 @@ function isHeld() {
   return isHeld;
 }
 
-function renderSubject(vertex) {
+function renderSubject (vertex) {
   holdCells();
-  const side = document.getElementById("subject-info-container");
-  const blank = document.getElementById("subject-info-main");
-  side.style.display = "flex";
+  const side = document.getElementById('subject-info-container');
+  const blank = document.getElementById('subject-info-main');
+  side.style.display = 'flex';
   side.dataset.currentViewId = vertex.vertex.data.id;
 
-  blank.innerHTML = "";
+  blank.innerHTML = '';
   fillInfoSide(blank, vertex);
 }
 
-function fillInfoSide(blank, vertex) {
+function fillInfoSide (blank, vertex) {
   const {
     vertex: {
       data: {
@@ -324,47 +324,47 @@ function fillInfoSide(blank, vertex) {
         subjectName,
         creditHours,
         requirements,
-        conditions,
-      },
+        conditions
+      }
     },
-    optionalId,
+    optionalId
   } = vertex;
-  const header = createElement("h1");
+  const header = createElement('h1');
   header.innerHTML = subjectName;
 
-  const typeP = createElement("p");
+  const typeP = createElement('p');
   typeP.innerHTML = `<span id="subject-info-type">type:</span>`;
 
-  if (optionalSetId) typeP.innerHTML += " optional, choose 1 only";
-  else if (type) typeP.innerHTML += " training course";
-  else typeP.innerHTML += " required";
+  if (optionalSetId) typeP.innerHTML += ' optional, choose 1 only';
+  else if (type) typeP.innerHTML += ' training course';
+  else typeP.innerHTML += ' required';
 
-  const creditHrs = createElement("p");
+  const creditHrs = createElement('p');
   creditHrs.innerHTML = `<span id="subject-info-type">credit hours:</span> ${creditHours} hours`;
 
-  const requiredP = createElement("p");
+  const requiredP = createElement('p');
   requiredP.innerHTML = `<span id="subject-info-type">requirements for the course:</span> `;
-  if (requirements.length) requiredP.innerHTML += "<br><ul>";
+  if (requirements.length) requiredP.innerHTML += '<br><ul>';
 
   requirements.forEach((req) => (requiredP.innerHTML += `<li>${req}<br></li>`));
 
-  if (requirements.length) requiredP.innerHTML += "</ul>";
-  else requiredP.innerHTML += "none";
+  if (requirements.length) requiredP.innerHTML += '</ul>';
+  else requiredP.innerHTML += 'none';
 
-  const conditionsP = createElement("p");
+  const conditionsP = createElement('p');
 
   if (conditions) {
     conditionsP.innerHTML = `<span id="subject-info-type">Can take the course only if:</span> `;
-    conditionsP.innerHTML += "<br><ul>";
+    conditionsP.innerHTML += '<br><ul>';
 
     conditions.forEach(
-      (req) => (conditionsP.innerHTML += `<li>${req}<br></li>`),
+      (req) => (conditionsP.innerHTML += `<li>${req}<br></li>`)
     );
-    conditionsP.innerHTML += "</ul>";
+    conditionsP.innerHTML += '</ul>';
   }
 
-  const hr = document.createElement("hr");
-  hr.id = "footer-line";
+  const hr = document.createElement('hr');
+  hr.id = 'footer-line';
   blank.appendChild(header);
   blank.appendChild(typeP);
   blank.appendChild(creditHrs);
@@ -373,12 +373,12 @@ function fillInfoSide(blank, vertex) {
   blank.appendChild(hr);
 }
 
-function unmountSubjectInfo() {
+function unmountSubjectInfo () {
   releaseCells();
-  const side = document.getElementById("subject-info-container");
-  const blank = document.getElementById("subject-info-main");
+  const side = document.getElementById('subject-info-container');
+  const blank = document.getElementById('subject-info-main');
 
-  side.style.display = "none";
-  side.removeAttribute("data-current-view-id");
-  blank.innerHTML = "";
+  side.style.display = 'none';
+  side.removeAttribute('data-current-view-id');
+  blank.innerHTML = '';
 }
