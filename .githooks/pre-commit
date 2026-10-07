@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+files=()
+while IFS= read -r -d '' file; do
+  case "$file" in
+    *.js|*.jsx|*.mjs|*.cjs|*.ts|*.tsx|*.mts|*.cts|*.css|*.json|*.jsonc)
+      files+=("$file")
+      ;;
+  esac
+done < <(git diff --cached --name-only --diff-filter=ACMR -z)
+
+(( ${#files[@]} )) || exit 0
+
+# Restaging a partially staged file would commit unrelated local edits.
+for file in "${files[@]}"; do
+  if ! git diff --quiet -- "$file"; then
+    printf 'Biome: stage or stash remaining edits in %s before committing.\n' "$file" >&2
+    exit 1
+  fi
+done
+
+command -v npx >/dev/null || {
+  printf 'Biome: Node.js and npm (npx) are required for formatting.\n' >&2
+  exit 1
+}
+
+npx --yes @biomejs/biome@latest format --write -- "${files[@]}"
+git add -- "${files[@]}"
