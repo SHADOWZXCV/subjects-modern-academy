@@ -2,6 +2,12 @@
 let GPA_MODE = false;
 
 (() => {
+  // Academic years start in September: getMonth() uses 8 for September.
+  const today = new Date();
+  const startYear = today.getFullYear() - (today.getMonth() < 8 ? 1 : 0);
+  document.getElementById('valid-academic-year').textContent =
+    `${startYear}/${startYear + 1} students`;
+
   const side = document.getElementById('subject-info-container');
   const gpa_button = document.getElementById('gpa-feature-button');
 
@@ -28,7 +34,7 @@ let GPA_MODE = false;
   });
 })();
 
-function toggleClassModifierOfElement (
+function toggleClassModifierOfElement(
   state,
   elem,
   baseClass,
@@ -39,7 +45,7 @@ function toggleClassModifierOfElement (
   elem.classList.add(`${baseClass}_${state ? onClass : offClass}`);
 }
 
-function renderTable () {
+function renderTable() {
   // reset search and table holding position
   const searchForm = document.getElementsByName('search-entry')[0];
   searchForm.value = '';
@@ -57,7 +63,7 @@ function renderTable () {
   });
 }
 
-function highlightCellByCode (graph) {
+function highlightCellByCode(graph) {
   const searchForm = document.getElementById('search-bar');
   const search = new FormData(searchForm);
   const searchEntry = search.get('search-entry');
