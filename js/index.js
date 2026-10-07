@@ -2,52 +2,52 @@
 let GPA_MODE = false;
 
 (() => {
-  const side = document.getElementById("subject-info-container");
-  const gpa_button = document.getElementById("gpa-feature-button");
+  const side = document.getElementById('subject-info-container');
+  const gpa_button = document.getElementById('gpa-feature-button');
 
-  side.addEventListener("click", (e) => {
+  side.addEventListener('click', (e) => {
     if (e.target === side) unmountSubjectInfo();
   });
 
-  gpa_button.addEventListener("click", (e) => {
+  gpa_button.addEventListener('click', (e) => {
     e.target.dataset.gpaToggle =
-      e.target.dataset.gpaToggle === "on" ? "off" : "on";
-    GPA_MODE = e.target.dataset.gpaToggle === "on";
+      e.target.dataset.gpaToggle === 'on' ? 'off' : 'on';
+    GPA_MODE = e.target.dataset.gpaToggle === 'on';
 
-    toggleClassModifierOfElement(GPA_MODE, e.target, "gpa-btn", "on", "off");
+    toggleClassModifierOfElement(GPA_MODE, e.target, 'gpa-btn', 'on', 'off');
     e.target.innerText = GPA_MODE
-      ? "Back to search mode"
-      : "GPA Calculation Mode";
+      ? 'Back to search mode'
+      : 'GPA Calculation Mode';
 
     if (GPA_MODE) gpaEnableInteraction();
     else gpaDisableInteraction();
   });
 
-  loadSpecificationData("./db/computer_engineering.json").then((subjects) => {
+  loadSpecificationData('./db/computer_engineering.json').then((subjects) => {
     initTable(subjects);
   });
 })();
 
-function toggleClassModifierOfElement(
+function toggleClassModifierOfElement (
   state,
   elem,
   baseClass,
   onClass,
-  offClass,
+  offClass
 ) {
   elem.classList.remove(`${baseClass}_${state ? offClass : onClass}`);
   elem.classList.add(`${baseClass}_${state ? onClass : offClass}`);
 }
 
-function renderTable() {
+function renderTable () {
   // reset search and table holding position
-  const searchForm = document.getElementsByName("search-entry")[0];
-  searchForm.value = "";
-  const holdBox = document.getElementsByName("search-hold")[0];
+  const searchForm = document.getElementsByName('search-entry')[0];
+  searchForm.value = '';
+  const holdBox = document.getElementsByName('search-hold')[0];
   holdBox.checked = false;
 
-  const selected = document.getElementById("header-select-main").value;
-  loadSpecificationData("./db/index.json").then((files) => {
+  const selected = document.getElementById('header-select-main').value;
+  loadSpecificationData('./db/index.json').then((files) => {
     if (files[selected])
       loadSpecificationData(`./db/${files[selected]}.json`).then((subjects) => {
         // TODO
@@ -57,10 +57,10 @@ function renderTable() {
   });
 }
 
-function highlightCellByCode(graph) {
-  const searchForm = document.getElementById("search-bar");
+function highlightCellByCode (graph) {
+  const searchForm = document.getElementById('search-bar');
   const search = new FormData(searchForm);
-  const searchEntry = search.get("search-entry");
+  const searchEntry = search.get('search-entry');
   const cell = document.querySelector(`[data-subject-id='${searchEntry}']`);
   const vertex = graph.search(searchEntry);
 

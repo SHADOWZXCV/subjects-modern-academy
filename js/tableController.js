@@ -3,21 +3,21 @@ const TRAINING = 1;
 //for a subject, and what the subject can unlock.
 const graph = new MirectedGraph();
 
-function initTable(subjects) {
-  const tableBody = document.getElementById("table-body-flowsheet");
-  const tableCreditRow = document.getElementById("credit-table-row");
-  tableBody.innerHTML = "";
-  tableCreditRow.innerHTML = "";
+function initTable (subjects) {
+  const tableBody = document.getElementById('table-body-flowsheet');
+  const tableCreditRow = document.getElementById('credit-table-row');
+  tableBody.innerHTML = '';
+  tableCreditRow.innerHTML = '';
 
   // reset the table
   graph.clear();
   subjects.map((semester) => initGraph(graph, semester));
 
   // initialize the search functionality
-  const searchForm = document.getElementsByName("search-entry")[0];
+  const searchForm = document.getElementsByName('search-entry')[0];
 
   if (searchForm)
-    searchForm.addEventListener("keyup", (e) => highlightCellByCode(graph));
+    searchForm.addEventListener('keyup', (e) => highlightCellByCode(graph));
 
   // get value of maximum table rows
   const maxRows = getMaxTableRowLength(subjects);
@@ -63,7 +63,7 @@ function initTable(subjects) {
             vertex,
             isTrainingSem,
             rowPtr,
-            optionalSetId,
+            optionalSetId
           );
           optionalCreditHours = vertex.vertex.data.creditHours;
         });
@@ -82,7 +82,7 @@ function initTable(subjects) {
         ++currentCellPtr,
         vertex,
         isTrainingSem,
-        rowPtr,
+        rowPtr
       );
     });
 
@@ -113,23 +113,23 @@ function initTable(subjects) {
   renderCreditTable(semestersCreditHours);
 }
 
-function createSemestersRow(rowId) {
-  const tbody = document.getElementById("table-body-flowsheet");
-  const row = document.createElement("tr");
+function createSemestersRow (rowId) {
+  const tbody = document.getElementById('table-body-flowsheet');
+  const row = document.createElement('tr');
 
-  row.className = "flowsheet-row";
+  row.className = 'flowsheet-row';
   row.id = rowId;
   tbody.appendChild(row);
 
   return row;
 }
 
-function renderCreditTable(semestersCreditHours) {
-  const row = document.getElementById("credit-table-row");
+function renderCreditTable (semestersCreditHours) {
+  const row = document.getElementById('credit-table-row');
 
   semestersCreditHours.forEach((credit, idx) => {
-    const cell = document.createElement("th");
-    cell.className = "credit-cell";
+    const cell = document.createElement('th');
+    cell.className = 'credit-cell';
     cell.dataset.tableYear = Math.trunc((idx + 2) / 2);
     cell.dataset.tableSemester = idx + 1;
     cell.dataset.semesterCredits = credit;
@@ -148,7 +148,7 @@ function renderCreditTable(semestersCreditHours) {
  * Notes:
  * - Implementation is dependent on the way the data is structured inside the json files!
  */
-function getMaxTableRowLength(subjects) {
+function getMaxTableRowLength (subjects) {
   let maxRows = 0;
   let counter = 0;
   let curSem = 0;
