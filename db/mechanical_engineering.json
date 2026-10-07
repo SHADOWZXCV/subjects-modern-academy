@@ -530,8 +530,8 @@
       "creditHours": 2,
       "requirements": ["MNFn361"],
       "conditions": [
-        "GPA > 2 (printed figures tentatively read as 138/135)",
-        "GPA < 2 (printed figures tentatively read as 146/143)"
+        "GPA > 2: 120 Credits/ 123 Credits",
+        "GPA < 2: 128 Credits/ 131 Credits"
       ]
     }
   ],
@@ -584,7 +584,7 @@
     {
       "semester": 10,
       "id": 5,
-      "optionalSet": ["MNFn430", "MNFn431", "MNFn435"],
+      "optionalSet": ["MNFn430", "MNFn431", "MNFn435", "MNFn411"],
       "list": [
         {
           "semester": 10,
@@ -608,6 +608,14 @@
           "subjectName": "Elective5Advanced Facility Planning",
           "creditHours": 3,
           "requirements": ["MNFn312"],
+          "optionalSetId": 5
+        },
+        {
+          "semester": 10,
+          "id": "MNFn411",
+          "subjectName": "Elective 5: Quality Control and Quality Management",
+          "creditHours": 3,
+          "requirements": ["MTHn107"],
           "optionalSetId": 5
         }
       ]
