@@ -3,7 +3,7 @@ const TRAINING = 1;
 //for a subject, and what the subject can unlock.
 const graph = new MirectedGraph();
 
-function initTable (subjects) {
+function initTable(subjects) {
   const tableBody = document.getElementById('table-body-flowsheet');
   const tableCreditRow = document.getElementById('credit-table-row');
   tableBody.innerHTML = '';
@@ -76,7 +76,9 @@ function initTable (subjects) {
       const vertex = graph.search(subject.id);
       const rowPtr = subject.semester;
 
-      creditHours += vertex.vertex.data.creditHours;
+      // Display training credits without adding them to semester totals.
+      if (subject.type !== TRAINING)
+        creditHours += vertex.vertex.data.creditHours;
       prevCellPtr = renderVertex(
         prevCellPtr,
         ++currentCellPtr,
@@ -113,7 +115,7 @@ function initTable (subjects) {
   renderCreditTable(semestersCreditHours);
 }
 
-function createSemestersRow (rowId) {
+function createSemestersRow(rowId) {
   const tbody = document.getElementById('table-body-flowsheet');
   const row = document.createElement('tr');
 
@@ -124,7 +126,7 @@ function createSemestersRow (rowId) {
   return row;
 }
 
-function renderCreditTable (semestersCreditHours) {
+function renderCreditTable(semestersCreditHours) {
   const row = document.getElementById('credit-table-row');
 
   semestersCreditHours.forEach((credit, idx) => {
@@ -148,7 +150,7 @@ function renderCreditTable (semestersCreditHours) {
  * Notes:
  * - Implementation is dependent on the way the data is structured inside the json files!
  */
-function getMaxTableRowLength (subjects) {
+function getMaxTableRowLength(subjects) {
   let maxRows = 0;
   let counter = 0;
   let curSem = 0;

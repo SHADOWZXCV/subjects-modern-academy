@@ -107,7 +107,7 @@
       "type": 1,
       "id": "MNFn060",
       "subjectName": "Summer Training for level zero",
-      "creditHours": 0,
+      "creditHours": 2,
       "requirements": []
     }
   ],
@@ -205,7 +205,7 @@
       "type": 1,
       "id": "MNFn160",
       "subjectName": "Summer training for level one",
-      "creditHours": 0,
+      "creditHours": 2,
       "requirements": ["MNFn060"]
     }
   ],
@@ -328,7 +328,7 @@
       "type": 1,
       "id": "MNFn260",
       "subjectName": "Industrial Training -1",
-      "creditHours": 0,
+      "creditHours": 3,
       "requirements": ["MNFn160"],
       "conditions": ["66 Credits"]
     }
@@ -427,7 +427,7 @@
       "type": 1,
       "id": "MNFn360",
       "subjectName": "Industrial Training -2",
-      "creditHours": 0,
+      "creditHours": 3,
       "requirements": ["MNFn260"],
       "conditions": ["99 Credits"]
     }
