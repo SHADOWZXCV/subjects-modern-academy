@@ -107,7 +107,7 @@
       "type": 1,
       "id": "MNFn060",
       "subjectName": "Summer Training for level zero",
-      "creditHours": 0,
+      "creditHours": 2,
       "requirements": []
     }
   ],
@@ -205,7 +205,7 @@
       "type": 1,
       "id": "MNFn160",
       "subjectName": "Summer training for level one",
-      "creditHours": 0,
+      "creditHours": 2,
       "requirements": ["MNFn060"]
     }
   ],
@@ -328,7 +328,7 @@
       "type": 1,
       "id": "MNFn260",
       "subjectName": "Industrial Training -1",
-      "creditHours": 0,
+      "creditHours": 3,
       "requirements": ["MNFn160"],
       "conditions": ["66 Credits"]
     }
@@ -427,7 +427,7 @@
       "type": 1,
       "id": "MNFn360",
       "subjectName": "Industrial Training -2",
-      "creditHours": 0,
+      "creditHours": 3,
       "requirements": ["MNFn260"],
       "conditions": ["99 Credits"]
     }
@@ -530,8 +530,8 @@
       "creditHours": 2,
       "requirements": ["MNFn361"],
       "conditions": [
-        "GPA > 2 (printed figures tentatively read as 138/135)",
-        "GPA < 2 (printed figures tentatively read as 146/143)"
+        "GPA > 2: 120 Credits/ 123 Credits",
+        "GPA < 2: 128 Credits/ 131 Credits"
       ]
     }
   ],
@@ -584,7 +584,7 @@
     {
       "semester": 10,
       "id": 5,
-      "optionalSet": ["MNFn430", "MNFn431", "MNFn435"],
+      "optionalSet": ["MNFn430", "MNFn431", "MNFn435", "MNFn411"],
       "list": [
         {
           "semester": 10,
@@ -608,6 +608,14 @@
           "subjectName": "Elective5Advanced Facility Planning",
           "creditHours": 3,
           "requirements": ["MNFn312"],
+          "optionalSetId": 5
+        },
+        {
+          "semester": 10,
+          "id": "MNFn411",
+          "subjectName": "Elective 5: Quality Control and Quality Management",
+          "creditHours": 3,
+          "requirements": ["MTHn107"],
           "optionalSetId": 5
         }
       ]
