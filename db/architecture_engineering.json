@@ -156,7 +156,7 @@
     },
     {
       "semester": 3,
-      "id": "GENn142",
+      "id": "GENn142b",
       "subjectName": "Technical Report Writing",
       "creditHours": 2,
       "requirements": []
@@ -375,7 +375,7 @@
     {
       "semester": 7,
       "id": 123,
-      "optionalSet": ["GENn351d", "GENn352", "GENn353"],
+      "optionalSet": ["GENn351d", "GENn352a", "GENn353"],
       "list": [
         {
           "semester": 7,
@@ -387,7 +387,7 @@
         },
         {
           "semester": 7,
-          "id": "GENn352",
+          "id": "GENn352a",
           "subjectName": "Risk Management",
           "creditHours": 2,
           "requirements": [],
@@ -452,7 +452,7 @@
     },
     {
       "semester": 8,
-      "id": "ENGn213b",
+      "id": "ENGn213",
       "subjectName": "Advanced Computer Systems Implementation",
       "creditHours": 3,
       "requirements": ["CMPn010"]
@@ -604,7 +604,7 @@
         },
         {
           "semester": 9,
-          "id": "GENn452b",
+          "id": "GENn452a",
           "subjectName": "Civilization and heritage",
           "creditHours": 2,
           "requirements": [],
@@ -631,7 +631,7 @@
     },
     {
       "semester": 10,
-      "id": "ENGn312b",
+      "id": "ENGn312",
       "subjectName": "Engineering Laws and Professional ethics",
       "creditHours": 2,
       "requirements": []
