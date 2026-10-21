@@ -378,6 +378,7 @@
           "id": "GENn353",
           "subjectName": "Industrial Psychology",
           "creditHours": 2,
+          "note": "not registered in the system",
           "requirements": [],
           "optionalSetId": 123
         }
@@ -480,6 +481,7 @@
           "id": "GENn453e",
           "subjectName": "Marketing",
           "creditHours": 2,
+          "note": "not registered in the system",
           "requirements": [],
           "optionalSetId": 126
         }

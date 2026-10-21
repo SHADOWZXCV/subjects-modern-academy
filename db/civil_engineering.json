@@ -383,6 +383,7 @@
           "id": "GENn353",
           "subjectName": "Industrial Psychology",
           "creditHours": 2,
+          "note": "not registered in the system",
           "requirements": [],
           "optionalSetId": 35
         }
@@ -515,6 +516,7 @@
           "id": "GENn451",
           "subjectName": "Environmental Effects of Electromagnetic Waves",
           "creditHours": 2,
+          "note": "not registered in the system",
           "requirements": [],
           "optionalSetId": 45
         },
@@ -523,6 +525,7 @@
           "id": "GENn452",
           "subjectName": "Civilization and heritage",
           "creditHours": 2,
+          "note": "not registered in the system",
           "requirements": [],
           "optionalSetId": 45
         },
