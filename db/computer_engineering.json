@@ -149,10 +149,35 @@
     },
     {
       "semester": 3,
-      "id": "GENn352",
-      "subjectName": "Risk Management",
-      "creditHours": 2,
-      "requirements": []
+      "id": 123,
+      "optionalSet": ["GENn351b", "GENn352", "GENn353"],
+      "list": [
+        {
+          "semester": 3,
+          "id": "GENn351b",
+          "subjectName": "Technical English",
+          "creditHours": 2,
+          "requirements": [],
+          "optionalSetId": 123
+        },
+        {
+          "semester": 3,
+          "id": "GENn352",
+          "subjectName": "Risk Management",
+          "creditHours": 2,
+          "requirements": [],
+          "optionalSetId": 123
+        },
+        {
+          "semester": 3,
+          "id": "GENn353",
+          "subjectName": "Industrial Psychology",
+          "creditHours": 2,
+          "note": "not registered in the system",
+          "requirements": [],
+          "optionalSetId": 123
+        }
+      ]
     }
   ],
   [
@@ -380,35 +405,10 @@
     },
     {
       "semester": 7,
-      "id": 123,
-      "optionalSet": ["GENn351b", "ENGn311", "GENn353"],
-      "list": [
-        {
-          "semester": 7,
-          "id": "GENn351b",
-          "subjectName": "Technical English",
-          "creditHours": 2,
-          "requirements": [],
-          "optionalSetId": 123
-        },
-        {
-          "semester": 7,
-          "id": "ENGn311",
-          "subjectName": "Engineering Economy",
-          "creditHours": 2,
-          "requirements": [],
-          "optionalSetId": 123
-        },
-        {
-          "semester": 7,
-          "id": "GENn353",
-          "subjectName": "Industrial Psychology",
-          "creditHours": 2,
-          "note": "not registered in the system",
-          "requirements": [],
-          "optionalSetId": 123
-        }
-      ]
+      "id": "ENGn311",
+      "subjectName": "Engineering Economy",
+      "creditHours": 2,
+      "requirements": []
     }
   ],
   [
