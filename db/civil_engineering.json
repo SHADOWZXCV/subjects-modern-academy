@@ -135,7 +135,7 @@
     },
     {
       "semester": 3,
-      "id": "GENn142",
+      "id": "GENn142b",
       "subjectName": "Technical Report Writing",
       "creditHours": 2,
       "requirements": []
@@ -186,28 +186,28 @@
     },
     {
       "semester": 4,
-      "id": "GENn341",
+      "id": "GENn341b",
       "subjectName": "Project Management",
       "creditHours": 2,
       "requirements": []
     },
     {
       "semester": 4,
-      "id": "ENGn312",
+      "id": "ENGn312b",
       "subjectName": "Engineering Laws and Professional ethics",
       "creditHours": 2,
       "requirements": []
     },
     {
       "semester": 4,
-      "id": "ENGn213",
+      "id": "ENGn213b",
       "subjectName": "Advanced Computer Systems Implementation",
       "creditHours": 3,
       "requirements": ["CMPn010"]
     },
     {
       "semester": 4,
-      "id": "MTHn103",
+      "id": "MTHn103b",
       "subjectName": "Mathematics 3",
       "creditHours": 3,
       "requirements": ["MTHn002"]
@@ -247,10 +247,10 @@
     },
     {
       "semester": 5,
-      "id": "MTHn105",
+      "id": "MTHn105b",
       "subjectName": "Mathematics 5",
       "creditHours": 3,
-      "requirements": ["MTHn103"]
+      "requirements": ["MTHn103b"]
     },
     {
       "semester": 5,
@@ -291,7 +291,7 @@
     },
     {
       "semester": 6,
-      "id": "ENGn311",
+      "id": "ENGn311a",
       "subjectName": "Engineering Economy",
       "creditHours": 2,
       "requirements": []
@@ -508,7 +508,7 @@
     {
       "semester": 9,
       "id": 45,
-      "optionalSet": ["GENn451", "GENn452", "GENn453"],
+      "optionalSet": ["GENn451", "GENn452", "GENn453b"],
       "list": [
         {
           "semester": 9,
@@ -528,7 +528,7 @@
         },
         {
           "semester": 9,
-          "id": "GENn453",
+          "id": "GENn453b",
           "subjectName": "Marketing",
           "creditHours": 2,
           "requirements": [],
