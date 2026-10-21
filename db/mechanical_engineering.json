@@ -495,7 +495,7 @@
     {
       "semester": 9,
       "id": 2,
-      "optionalSet": ["GENn451a", "GENn452a", "GENn453m"],
+      "optionalSet": ["GENn451a", "GENn452m", "GENn453m"],
       "list": [
         {
           "semester": 9,
@@ -507,9 +507,10 @@
         },
         {
           "semester": 9,
-          "id": "GENn452a",
+          "id": "GENn452m",
           "subjectName": "Elective2 Civilization and heritage",
           "creditHours": 2,
+          "note": "letter made up so it isn't confused with architecture's GENn452a, may change later",
           "requirements": [],
           "optionalSetId": 2
         },

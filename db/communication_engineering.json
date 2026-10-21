@@ -456,7 +456,7 @@
     {
       "semester": 8,
       "id": 126,
-      "optionalSet": ["GENn451b", "GENn452a", "GENn453"],
+      "optionalSet": ["GENn451b", "GENn452e", "GENn453"],
       "list": [
         {
           "semester": 8,
@@ -468,9 +468,10 @@
         },
         {
           "semester": 8,
-          "id": "GENn452a",
+          "id": "GENn452e",
           "subjectName": "Civilization and heritage",
           "creditHours": 2,
+          "note": "letter made up so it isn't confused with architecture's GENn452a, may change later",
           "requirements": [],
           "optionalSetId": 126
         },
