@@ -149,7 +149,7 @@
     },
     {
       "semester": 3,
-      "id": "GENn142",
+      "id": "GENn142a",
       "subjectName": "Technical Report Writing.",
       "creditHours": 2,
       "requirements": []
@@ -193,7 +193,7 @@
     },
     {
       "semester": 4,
-      "id": "GENn141a",
+      "id": "GENn141c",
       "subjectName": "Presentation Skills.",
       "creditHours": 2,
       "requirements": []
@@ -280,7 +280,7 @@
       "id": "MNFn261",
       "subjectName": "Seminar-1.",
       "creditHours": 1,
-      "requirements": ["GENn141a", "GENn142"],
+      "requirements": ["GENn141c", "GENn142a"],
       "conditions": ["Complete 66 credit hours"]
     },
     {
@@ -480,14 +480,14 @@
     },
     {
       "semester": 9,
-      "id": "GENn341c",
+      "id": "GENn341m",
       "subjectName": "Project Management.",
       "creditHours": 2,
       "requirements": []
     },
     {
       "semester": 9,
-      "id": "ENGn311a",
+      "id": "ENGn311m",
       "subjectName": "Engineering Economy",
       "creditHours": 2,
       "requirements": []
@@ -495,7 +495,7 @@
     {
       "semester": 9,
       "id": 2,
-      "optionalSet": ["GENn451a", "GENn452a", "GENn453"],
+      "optionalSet": ["GENn451a", "GENn452a", "GENn453m"],
       "list": [
         {
           "semester": 9,
@@ -515,7 +515,7 @@
         },
         {
           "semester": 9,
-          "id": "GENn453",
+          "id": "GENn453m",
           "subjectName": "Elective2 Marketing",
           "creditHours": 2,
           "requirements": [],
@@ -653,7 +653,7 @@
     },
     {
       "semester": 10,
-      "id": "ENGn312a",
+      "id": "ENGn312m",
       "subjectName": "Engineering Laws and Professional Ethics",
       "creditHours": 2,
       "requirements": []
