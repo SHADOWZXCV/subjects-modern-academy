@@ -156,7 +156,7 @@
     },
     {
       "semester": 3,
-      "id": "GENn142",
+      "id": "GENn142b",
       "subjectName": "Technical Report Writing",
       "creditHours": 2,
       "requirements": []
@@ -375,19 +375,20 @@
     {
       "semester": 7,
       "id": 123,
-      "optionalSet": ["GENn351d", "GENn352", "GENn353"],
+      "optionalSet": ["GENn351d", "GENn352a", "GENn353"],
       "list": [
         {
           "semester": 7,
           "id": "GENn351d",
           "subjectName": "Technical English",
           "creditHours": 2,
+          "note": "not registered in the system",
           "requirements": ["GENn042"],
           "optionalSetId": 123
         },
         {
           "semester": 7,
-          "id": "GENn352",
+          "id": "GENn352a",
           "subjectName": "Risk Management",
           "creditHours": 2,
           "requirements": [],
@@ -398,6 +399,7 @@
           "id": "GENn353",
           "subjectName": "Industrial Psychology",
           "creditHours": 2,
+          "note": "not registered in the system",
           "requirements": [],
           "optionalSetId": 123
         }
@@ -452,7 +454,7 @@
     },
     {
       "semester": 8,
-      "id": "ENGn213b",
+      "id": "ENGn213",
       "subjectName": "Advanced Computer Systems Implementation",
       "creditHours": 3,
       "requirements": ["CMPn010"]
@@ -592,19 +594,20 @@
     {
       "semester": 9,
       "id": 127,
-      "optionalSet": ["GENn451b", "GENn452a", "GENn453"],
+      "optionalSet": ["GENn451", "GENn452a", "GENn453"],
       "list": [
         {
           "semester": 9,
           "id": "GENn451",
           "subjectName": "Environmental Effects of Electromagnetic Waves",
           "creditHours": 2,
+          "note": "not registered in the system",
           "requirements": [],
           "optionalSetId": 127
         },
         {
           "semester": 9,
-          "id": "GENn452b",
+          "id": "GENn452a",
           "subjectName": "Civilization and heritage",
           "creditHours": 2,
           "requirements": [],
@@ -631,7 +634,7 @@
     },
     {
       "semester": 10,
-      "id": "ENGn312b",
+      "id": "ENGn312",
       "subjectName": "Engineering Laws and Professional ethics",
       "creditHours": 2,
       "requirements": []

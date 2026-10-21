@@ -149,7 +149,7 @@
     },
     {
       "semester": 3,
-      "id": "GENn142",
+      "id": "GENn142a",
       "subjectName": "Technical Report Writing.",
       "creditHours": 2,
       "requirements": []
@@ -193,7 +193,7 @@
     },
     {
       "semester": 4,
-      "id": "GENn141a",
+      "id": "GENn141c",
       "subjectName": "Presentation Skills.",
       "creditHours": 2,
       "requirements": []
@@ -280,7 +280,7 @@
       "id": "MNFn261",
       "subjectName": "Seminar-1.",
       "creditHours": 1,
-      "requirements": ["GENn141a", "GENn142"],
+      "requirements": ["GENn141c", "GENn142a"],
       "conditions": ["Complete 66 credit hours"]
     },
     {
@@ -316,6 +316,7 @@
           "id": "GENn353",
           "subjectName": "Elective1 Industrial Psychology",
           "creditHours": 2,
+          "note": "not registered in the system",
           "requirements": [],
           "optionalSetId": 1
         }
@@ -480,14 +481,14 @@
     },
     {
       "semester": 9,
-      "id": "GENn341c",
+      "id": "GENn341m",
       "subjectName": "Project Management.",
       "creditHours": 2,
       "requirements": []
     },
     {
       "semester": 9,
-      "id": "ENGn311a",
+      "id": "ENGn311m",
       "subjectName": "Engineering Economy",
       "creditHours": 2,
       "requirements": []
@@ -495,27 +496,29 @@
     {
       "semester": 9,
       "id": 2,
-      "optionalSet": ["GENn451a", "GENn452a", "GENn453"],
+      "optionalSet": ["GENn451a", "GENn452m", "GENn453m"],
       "list": [
         {
           "semester": 9,
           "id": "GENn451a",
           "subjectName": "Elective2 Environmentsl Effects of Electromagnetic Waves.",
           "creditHours": 2,
+          "note": "not registered in the system",
           "requirements": [],
           "optionalSetId": 2
         },
         {
           "semester": 9,
-          "id": "GENn452a",
+          "id": "GENn452m",
           "subjectName": "Elective2 Civilization and heritage",
           "creditHours": 2,
+          "note": "letter made up so it isn't confused with architecture's GENn452a, may change later",
           "requirements": [],
           "optionalSetId": 2
         },
         {
           "semester": 9,
-          "id": "GENn453",
+          "id": "GENn453m",
           "subjectName": "Elective2 Marketing",
           "creditHours": 2,
           "requirements": [],
@@ -653,7 +656,7 @@
     },
     {
       "semester": 10,
-      "id": "ENGn312a",
+      "id": "ENGn312m",
       "subjectName": "Engineering Laws and Professional Ethics",
       "creditHours": 2,
       "requirements": []
