@@ -11,8 +11,7 @@
     <header>
       <div id="header-main">
         <h1 id="header-title">
-          Transfer Flowsheet for Engineering Departments BS (Effective AY
-          2020-21)
+          Transfer Flowsheet for Engineering Departments BS (Effective AY 2020-21)
         </h1>
         <button
           id="gpa-feature-button"
@@ -67,11 +66,7 @@
               >
                 Calculate
               </button>
-              <button
-                class="normal-button"
-                id="cgpa-btn"
-                onclick="toggleTotalGPAClick()"
-              >
+              <button class="normal-button" id="cgpa-btn" onclick="toggleTotalGPAClick()">
                 Total GPA
               </button>
               <button
@@ -134,11 +129,7 @@
             </div>
             <div class="search-bar-entry">
               <label><b>Select Specialization</b></label>
-              <select
-                onchange="renderTable()"
-                class="header-input"
-                id="header-select-main"
-              >
+              <select onchange="renderTable()" class="header-input" id="header-select-main">
                 <option disabled>Choose your specialization</option>
                 <option value="Computer" selected>Computer Engineering</option>
                 <option value="Communication">Communication Engineering</option>
@@ -163,87 +154,21 @@
             <th class="flowsheet-header-cell" colspan="2" data-header-year="2">
               Year 2 - Sophomore
             </th>
-            <th class="flowsheet-header-cell" colspan="2" data-header-year="3">
-              Year 3 - Junior
-            </th>
-            <th class="flowsheet-header-cell" colspan="2" data-header-year="4">
-              Year 4 - Junior
-            </th>
-            <th class="flowsheet-header-cell" colspan="2" data-header-year="5">
-              Year 5 - Senior
-            </th>
+            <th class="flowsheet-header-cell" colspan="2" data-header-year="3">Year 3 - Junior</th>
+            <th class="flowsheet-header-cell" colspan="2" data-header-year="4">Year 4 - Junior</th>
+            <th class="flowsheet-header-cell" colspan="2" data-header-year="5">Year 5 - Senior</th>
           </tr>
           <tr>
-            <th
-              colspan="1"
-              class="flowsheet-subheader-cell"
-              data-header-semester="1"
-            >
-              Fall
-            </th>
-            <th
-              colspan="1"
-              class="flowsheet-subheader-cell"
-              data-header-semester="2"
-            >
-              Spring
-            </th>
-            <th
-              colspan="1"
-              class="flowsheet-subheader-cell"
-              data-header-semester="3"
-            >
-              Fall
-            </th>
-            <th
-              colspan="1"
-              class="flowsheet-subheader-cell"
-              data-header-semester="4"
-            >
-              Spring
-            </th>
-            <th
-              colspan="1"
-              class="flowsheet-subheader-cell"
-              data-header-semester="5"
-            >
-              Fall
-            </th>
-            <th
-              colspan="1"
-              class="flowsheet-subheader-cell"
-              data-header-semester="6"
-            >
-              Spring
-            </th>
-            <th
-              colspan="1"
-              class="flowsheet-subheader-cell"
-              data-header-semester="7"
-            >
-              Fall
-            </th>
-            <th
-              colspan="1"
-              class="flowsheet-subheader-cell"
-              data-header-semester="8"
-            >
-              Spring
-            </th>
-            <th
-              colspan="1"
-              class="flowsheet-subheader-cell"
-              data-header-semester="9"
-            >
-              Fall
-            </th>
-            <th
-              colspan="1"
-              class="flowsheet-subheader-cell"
-              data-header-semester="10"
-            >
-              Spring
-            </th>
+            <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="1">Fall</th>
+            <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="2">Spring</th>
+            <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="3">Fall</th>
+            <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="4">Spring</th>
+            <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="5">Fall</th>
+            <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="6">Spring</th>
+            <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="7">Fall</th>
+            <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="8">Spring</th>
+            <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="9">Fall</th>
+            <th colspan="1" class="flowsheet-subheader-cell" data-header-semester="10">Spring</th>
           </tr>
         </thead>
         <tbody id="table-body-flowsheet"></tbody>
@@ -282,30 +207,27 @@
     <div id="flowsheet-descr">
       <h3>What colors represent:</h3>
       <div class="descr-div" id="desc-current">
-        <span class="circle-indicator" id="current-indicator"></span> Current
-        subject description
+        <span class="circle-indicator" id="current-indicator"></span> Current subject description
         <i class="desc-icon"><img src="./assets/images/info-circle.svg" /></i>
       </div>
       <div class="descr-div" id="desc-req">
-        <span class="circle-indicator" id="req-indicator"></span> Requirements
-        for the current subject
+        <span class="circle-indicator" id="req-indicator"></span> Requirements for the current
+        subject
         <i class="desc-icon small-desc-icon no-invert-desc-icon"
           ><img src="./assets/images/arrow-left.svg"
         /></i>
       </div>
       <div class="descr-div" id="desc-dependent">
-        <span class="circle-indicator" id="dependent-indicator"></span> Subjects
-        that are open after this subject is complete
-        <i class="desc-icon small-desc-icon"
-          ><img src="./assets/images/arrow-right.svg"
-        /></i>
+        <span class="circle-indicator" id="dependent-indicator"></span> Subjects that are open after
+        this subject is complete
+        <i class="desc-icon small-desc-icon"><img src="./assets/images/arrow-right.svg" /></i>
       </div>
       <div class="descr-div" id="desc-training">
         <span class="circle-indicator" id="training-indicator"></span> Training
       </div>
       <div class="descr-div" id="desc-optional">
-        <span class="circle-indicator" id="optional-indicator"></span> Optional
-        subjects, you can take only one of them
+        <span class="circle-indicator" id="optional-indicator"></span> Optional subjects, you can
+        take only one of them
       </div>
     </div>
     <br />
@@ -314,9 +236,7 @@
     <footer>
       <p>
         Made with ❤️ by
-        <a href="https://www.linkedin.com/in/ezz-aldyn-husen/"
-          >Ezzeldin Husen</a
-        >
+        <a href="https://www.linkedin.com/in/ezz-aldyn-husen/">Ezzeldin Husen</a>
       </p>
       <p>Contributors:</p>
       <ul>

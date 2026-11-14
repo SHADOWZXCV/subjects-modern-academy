@@ -158,9 +158,9 @@ table {
 }
 
 /* Optional groups of cells which are not selected or referred to  */
-.cell[data-optional-id]:not([data-is-optional-sibling="true"]):not(
-    [data-dependent="true"]
-  ):not([data-required="true"]):not([data-current="true"]) {
+.cell[data-optional-id]:not([data-is-optional-sibling="true"]):not([data-dependent="true"]):not(
+    [data-required="true"]
+  ):not([data-current="true"]) {
   background: var(--opt-cell-bg);
 }
 
@@ -390,8 +390,7 @@ footer {
 #subject-info-icon {
   width: 15px;
   cursor: pointer;
-  filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(275deg)
-    brightness(103%) contrast(7%);
+  filter: invert(0%) sepia(0%) saturate(7500%) hue-rotate(275deg) brightness(103%) contrast(7%);
 }
 
 #subject-info-type {
@@ -703,8 +702,7 @@ footer {
   width: 20px;
   height: 20px;
   margin-right: 8px;
-  filter: invert(34%) sepia(53%) saturate(7098%) hue-rotate(202deg)
-    brightness(99%) contrast(103%);
+  filter: invert(34%) sepia(53%) saturate(7098%) hue-rotate(202deg) brightness(99%) contrast(103%);
 }
 
 .gpa-entry {
