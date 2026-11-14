@@ -37,3 +37,14 @@ However, if you would like to add any feature that helps within the scope of uni
 
 1. Any changes or features are only submitted by making _a new branch_, and to be merged using _pull requests_
 2. To add a new feature, simply make a new branch named: `feature-<name_of_feature>`, for bugs and/or suggestions, make the branch's name: `issue-<name>`
+
+## Formatting and linting
+
+The tools install with `npm install`. npm waits seven days before it takes a new release; `.npmrc` holds the setting and its one exclusion.
+
+- `npm run fmt` lays out every file with [Oxfmt](https://oxc.rs/docs/guide/usage/formatter). `.oxfmtrc.json` keeps its defaults and sorts imports.
+- `npm run lint` runs [Oxlint](https://oxc.rs/docs/guide/usage/linter) with its type-aware rules over the scripts, and [Stylelint](https://stylelint.io) over `css/style.css`. Every colour in the stylesheet comes from a custom property of `:root`.
+- `npm run check` checks the layout and then lints, without changing a file.
+- `npm run hooks` points git at `.githooks/`. Before each commit, the hook lays out the staged files, stages the result, and lints the staged scripts and stylesheets.
+
+`.oxlintrc.json` and `stylelint.config.mjs` give the reason for each rule that is turned off or relaxed.
