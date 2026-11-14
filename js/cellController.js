@@ -10,7 +10,7 @@ function renderVertex(prevCellPtr, currentCellPtr, vertex, isTrainingSem, rowPtr
   let row = document.getElementById(rowId);
   let cell = document.getElementById(colId);
 
-  if (!row) row = createSemestersRow(rowId);
+  row ??= createSemestersRow(rowId);
   if (!cell) cell = createCell(row, colId, vertex, optionalId);
   else if (cell && !cell.contains(null)) {
     cell.remove();
@@ -35,9 +35,9 @@ function renderEmptyCell(rowPtr, currentCellPtr) {
   // if(col)
   //     return
 
-  if (!row) row = createSemestersRow(rowId);
+  row ??= createSemestersRow(rowId);
 
-  if (!cell) cell = createCell(row, colId, null);
+  cell ??= createCell(row, colId, null);
 
   cell.dataset.isEmpty = true;
 }
@@ -206,45 +206,47 @@ function attachCellActions(vertex, cell, optionalId) {
   cell.dataset.semester = semester;
   cell.dataset.creditHours = creditHours;
 
-  cell.addEventListener("mouseenter", (e) => highlightCell(cell, vertex, optionalId));
+  cell.addEventListener("mouseenter", () => highlightCell(cell, vertex, optionalId));
   cell.addEventListener("click", (e) => handleCellClick(e, vertex));
 
-  cell.addEventListener("mouseleave", (e) => {
-    let siblingVertex = vertex.vertex.next;
-    let dirWeight = vertex.vertex.dirWeight;
+  cell.addEventListener("mouseleave", (e) => clearCellHighlight(e, cell, vertex, optionalId));
+}
 
-    if (!e.target.dataset.current || cell.dataset.isHeld) {
-      return;
-    }
+function clearCellHighlight(e, cell, vertex, optionalId) {
+  let siblingVertex = vertex.vertex.next;
+  let dirWeight = vertex.vertex.dirWeight;
 
-    e.target.removeAttribute("data-current");
+  if (!e.target.dataset.current || cell.dataset.isHeld) {
+    return;
+  }
 
-    const creditHrs = cell.querySelector(".cell-credit-hours");
-    creditHrs.style.display = "none";
+  e.target.removeAttribute("data-current");
 
-    while (siblingVertex) {
-      const elem = document.querySelector(`[data-subject-id="${siblingVertex.data.id}"]`);
-      if (!elem) return;
-      if (dirWeight === DEPENDENT) elem.removeAttribute("data-required");
-      else if (dirWeight === REQUIRED) elem.removeAttribute("data-dependent");
+  const creditHrs = cell.querySelector(".cell-credit-hours");
+  creditHrs.style.display = "none";
 
-      dirWeight = siblingVertex.dirWeight;
-      siblingVertex = siblingVertex.next;
-    }
+  while (siblingVertex) {
+    const elem = document.querySelector(`[data-subject-id="${siblingVertex.data.id}"]`);
+    if (!elem) return;
+    if (dirWeight === DEPENDENT) elem.removeAttribute("data-required");
+    else if (dirWeight === REQUIRED) elem.removeAttribute("data-dependent");
 
-    siblingVertex = vertex;
+    dirWeight = siblingVertex.dirWeight;
+    siblingVertex = siblingVertex.next;
+  }
 
-    if (optionalId) {
-      const optionalSet = document.querySelectorAll(`[data-optional-id="${optionalId}"]`);
-      [...optionalSet].forEach((element) => {
-        element.dataset.isOptionalSibling = false;
-      });
-    }
+  siblingVertex = vertex;
 
-    if (GPA_MODE) {
-      return;
-    }
-  });
+  if (optionalId) {
+    const optionalSet = document.querySelectorAll(`[data-optional-id="${optionalId}"]`);
+    [...optionalSet].forEach((element) => {
+      element.dataset.isOptionalSibling = false;
+    });
+  }
+
+  if (GPA_MODE) {
+    return;
+  }
 }
 
 function handleCellClick(e, vertex) {
@@ -276,9 +278,7 @@ function isHeld() {
 
   if (!toggleTableState) return false;
 
-  const isHeld = toggleTableState.checked;
-
-  return isHeld;
+  return toggleTableState.checked;
 }
 
 function renderSubject(vertex) {
@@ -297,7 +297,6 @@ function fillInfoSide(blank, vertex) {
     vertex: {
       data: { type, optionalSetId, subjectName, creditHours, requirements, conditions },
     },
-    optionalId,
   } = vertex;
   const header = createElement("h1");
   header.innerHTML = subjectName;

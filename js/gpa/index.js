@@ -25,7 +25,7 @@ function toggleHintMessageMode(mode = "first") {
     mode === "first" ? "subheader-explain" : "old-subheader-explain",
   );
 
-  subheader_explain.addEventListener("mouseenter", (e) => {
+  subheader_explain.addEventListener("mouseenter", () => {
     const subheaders = document.querySelectorAll(
       `.${modesMap[mode]["subheader_to_be_selected_class"]}:not(.${modesMap[mode]["subheader_selected_class"]})`,
     );
@@ -35,7 +35,7 @@ function toggleHintMessageMode(mode = "first") {
     });
   });
 
-  subheader_explain.addEventListener("mouseleave", (e) => {
+  subheader_explain.addEventListener("mouseleave", () => {
     const subheaders = document.querySelectorAll(
       `.${modesMap[mode]["subheader_to_be_selected_class"]}:not(.${modesMap[mode]["subheader_selected_class"]})`,
     );

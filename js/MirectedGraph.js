@@ -5,6 +5,7 @@ const UNIDIRECTIONAL = -1;
 const REQUIRED = 1;
 const DEPENDENT = 2;
 
+// oxlint-disable-next-line typescript/no-extraneous-class -- a vertex is a record the graph links; new Vertex names its shape
 class Vertex {
   constructor(val) {
     this.data = val;
@@ -26,9 +27,9 @@ class MirectedGraph {
 
       return {
         vertex,
-        optionalId: vertex.data.optionalSetId || false,
+        optionalId: vertex.data.optionalSetId ?? false,
       };
-    } catch (error) {
+    } catch {
       return false;
     }
   }
@@ -38,17 +39,17 @@ class MirectedGraph {
 
     return {
       vertex,
-      optionalId: vertex.data.optionalSetId || false,
+      optionalId: vertex.data.optionalSetId ?? false,
     };
   }
 
   toString() {
     Object.keys(this.adjacencyList).map((mainId) => {
       let vertex = this.adjacencyList[mainId];
-      let {
+      const {
         data: { id },
-        dirWeight,
       } = vertex;
+      let { dirWeight } = vertex;
       let dependency =
         dirWeight === REQUIRED
           ? " is a requirement for: "
@@ -154,6 +155,9 @@ function initGraph(graph, semester) {
     }
 
     if (!requirements.length) graph.addEdge(subject, null, GO_RIGHT);
-    else requirements.forEach((id) => graph.addEdge(subject, { id, data: null }, UNIDIRECTIONAL));
+    else
+      requirements.forEach((requiredId) =>
+        graph.addEdge(subject, { id: requiredId, data: null }, UNIDIRECTIONAL),
+      );
   });
 }

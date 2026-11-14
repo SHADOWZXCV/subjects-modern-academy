@@ -16,7 +16,6 @@ function toggleSemestersHeadings(actions) {
   const selectedCurrentSemester = document.querySelectorAll(
     `.${modesMap[mode][selectedModeClass]}[data-semester="${subjectSemesterNumber}"]:not([data-optional-id],[data-is-training])`,
   );
-  const otherMode = mode === "first" ? "second" : mode === "second" ? "first" : "";
   const allCurrentSemester = document.querySelectorAll(
     `[data-semester="${subjectSemesterNumber}"]:not([data-optional-id],[data-is-training])`,
   );
@@ -164,7 +163,6 @@ function isElementToggled(action) {
   // find all classes related to element type
   const {
     element: { classList },
-    mode,
     selectType,
   } = action;
   const styleClasses = Object.keys(modesMap).map(
@@ -318,7 +316,7 @@ function resetCalculator(rows) {
     '<div id="gpa-subject-headings"><div class="gpa-subject-heading"><b>Subject</b></div><div class="gpa-subject-heading"><b>Code</b></div><div class="gpa-subject-heading"><b>Credit hours</b></div><div class="gpa-subject-heading"><b>Grade</b></div></div>';
   const heading = new DOMParser().parseFromString(headingText, "text/html");
 
-  rows.innerHTML = `${heading.body.innerHTML}`;
+  rows.innerHTML = heading.body.innerHTML;
 }
 
 function toggleTotalGPAClick() {

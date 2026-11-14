@@ -8,6 +8,8 @@
     "hooks": "bash scripts/install-git-hooks.sh"
   },
   "devDependencies": {
-    "oxfmt": "0.77.0"
+    "oxfmt": "0.77.0",
+    "oxlint": "1.92.0",
+    "oxlint-tsgolint": "7.0.2006"
   }
 }

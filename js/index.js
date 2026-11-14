@@ -26,7 +26,7 @@ let GPA_MODE = false;
     else gpaDisableInteraction();
   });
 
-  loadSpecificationData("./db/computer_engineering.json").then((subjects) => {
+  void loadSpecificationData("./db/computer_engineering.json").then((subjects) => {
     initTable(subjects);
   });
 })();
@@ -44,9 +44,9 @@ function renderTable() {
   holdBox.checked = false;
 
   const selected = document.getElementById("header-select-main").value;
-  loadSpecificationData("./db/index.json").then((files) => {
+  void loadSpecificationData("./db/index.json").then((files) => {
     if (files[selected])
-      loadSpecificationData(`./db/${files[selected]}.json`).then((subjects) => {
+      void loadSpecificationData(`./db/${files[selected]}.json`).then((subjects) => {
         // TODO
         // selectedElements.semesters = []
         initTable(subjects);
@@ -57,7 +57,8 @@ function renderTable() {
 function highlightCellByCode(graph) {
   const searchForm = document.getElementById("search-bar");
   const search = new FormData(searchForm);
-  const searchEntry = search.get("search-entry");
+  const entry = search.get("search-entry");
+  const searchEntry = typeof entry === "string" ? entry : "";
   const cell = document.querySelector(`[data-subject-id='${searchEntry}']`);
   const vertex = graph.search(searchEntry);
 

@@ -16,7 +16,7 @@ function initTable(subjects) {
   // initialize the search functionality
   const searchForm = document.getElementsByName("search-entry")[0];
 
-  if (searchForm) searchForm.addEventListener("keyup", (e) => highlightCellByCode(graph));
+  if (searchForm) searchForm.addEventListener("keyup", () => highlightCellByCode(graph));
 
   // get value of maximum table rows
   const maxRows = getMaxTableRowLength(subjects);
