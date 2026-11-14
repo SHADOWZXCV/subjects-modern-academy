@@ -1,0 +1,20 @@
+{
+  "name": "subjects-modern-academy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The subjects of each Modern Academy engineering department and how they depend on each other.",
+  "scripts": {
+    "fmt": "oxfmt",
+    "lint": "oxlint --type-aware --deny-warnings && stylelint \"css/**/*.css\"",
+    "check": "oxfmt --check && npm run lint",
+    "hooks": "bash scripts/install-git-hooks.sh"
+  },
+  "devDependencies": {
+    "oxfmt": "0.77.0",
+    "oxlint": "1.92.0",
+    "oxlint-tsgolint": "7.0.2006",
+    "stylelint": "18.0.0",
+    "stylelint-config-standard": "41.0.0",
+    "stylelint-declaration-strict-value": "1.13.0"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["eslint", "typescript", "unicorn", "oxc"],
+  "categories": { "correctness": "error", "suspicious": "error", "perf": "error" },
+  "env": { "browser": true },
+  "rules": {
+    "max-lines": "error",
+    "max-lines-per-function": "error",
+    "typescript/switch-exhaustiveness-check": "error",
+    "typescript/prefer-nullish-coalescing": "error",
+    // The semistandard rules Biome held.
+    "prefer-const": "error",
+    "prefer-template": "error",
+    "yoda": "error",
+    "eqeqeq": ["error", "always", { "null": "ignore" }],
+    "no-var": "error",
+    // Off: index.html loads the scripts as classic scripts that share one global scope, so a
+    // function one file declares is called from another file or from an onclick attribute.
+    "no-unused-vars": "off"
+  },
+  "overrides": [
+    {
+      // Over the size limits before the rule; each split is its own change.
+      "files": ["js/cellController.js", "js/gpa/gpaInterfaceController.js"],
+      "rules": { "max-lines": "off" }
+    },
+    {
+      // initTable and addSubjectsToCalculator, and the callbacks inside them, ran past 50 lines
+      // before the rule; each split is its own change.
+      "files": ["js/tableController.js", "js/gpa/gpaInterfaceController.js"],
+      "rules": { "max-lines-per-function": "off" }
+    }
+  ]
+}

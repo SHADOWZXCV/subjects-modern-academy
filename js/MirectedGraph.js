@@ -5,6 +5,7 @@ const UNIDIRECTIONAL = -1;
 const REQUIRED = 1;
 const DEPENDENT = 2;
 
+// oxlint-disable-next-line typescript/no-extraneous-class -- a vertex is a record the graph links; new Vertex names its shape
 class Vertex {
   constructor(val) {
     this.data = val;
@@ -26,9 +27,9 @@ class MirectedGraph {
 
       return {
         vertex,
-        optionalId: vertex.data.optionalSetId || false
+        optionalId: vertex.data.optionalSetId ?? false,
       };
-    } catch (error) {
+    } catch {
       return false;
     }
   }
@@ -38,41 +39,39 @@ class MirectedGraph {
 
     return {
       vertex,
-      optionalId: vertex.data.optionalSetId || false
+      optionalId: vertex.data.optionalSetId ?? false,
     };
   }
 
   toString() {
     Object.keys(this.adjacencyList).map((mainId) => {
       let vertex = this.adjacencyList[mainId];
-      let {
+      const {
         data: { id },
-        dirWeight
       } = vertex;
+      let { dirWeight } = vertex;
       let dependency =
         dirWeight === REQUIRED
-          ? ' is a requirement for: '
+          ? " is a requirement for: "
           : dirWeight === DEPENDENT
-            ? ' depends on: '
-            : ' not depending in anything ';
-      console.log(id, dependency, '->');
+            ? " depends on: "
+            : " not depending in anything ";
+      console.log(id, dependency, "->");
 
       while (vertex.next != null) {
         vertex = vertex.next;
         dirWeight = vertex.dirWeight;
         dependency =
           dirWeight === REQUIRED
-            ? ' is a requirement for: '
+            ? " is a requirement for: "
             : dirWeight === DEPENDENT
-              ? ' depends on: '
-              : ' not depending in anything ';
+              ? " depends on: "
+              : " not depending in anything ";
         console.log(
           vertex.data.id,
-          vertex.data.data && !vertex.data.data.optional
-            ? ''
-            : ' this one is optional ',
+          vertex.data.data && !vertex.data.data.optional ? "" : " this one is optional ",
           dependency,
-          '->'
+          "->",
         );
       }
       console.log(null);
@@ -82,7 +81,7 @@ class MirectedGraph {
   addEdgeSet(edgeSet) {
     this.adjacencyListOptionals = {
       ...this.adjacencyListOptionals,
-      [edgeSet.id]: edgeSet.set
+      [edgeSet.id]: edgeSet.set,
     };
   }
 
@@ -140,7 +139,7 @@ class MirectedGraph {
   }
 }
 
-function initGraph (graph, semester) {
+function initGraph(graph, semester) {
   semester.map((subject) => {
     const { id, requirements, optionalSet, list } = subject;
 
@@ -157,8 +156,8 @@ function initGraph (graph, semester) {
 
     if (!requirements.length) graph.addEdge(subject, null, GO_RIGHT);
     else
-      requirements.forEach((id) =>
-        graph.addEdge(subject, { id, data: null }, UNIDIRECTIONAL)
+      requirements.forEach((requiredId) =>
+        graph.addEdge(subject, { id: requiredId, data: null }, UNIDIRECTIONAL),
       );
   });
 }

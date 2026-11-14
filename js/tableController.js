@@ -4,20 +4,19 @@ const TRAINING = 1;
 const graph = new MirectedGraph();
 
 function initTable(subjects) {
-  const tableBody = document.getElementById('table-body-flowsheet');
-  const tableCreditRow = document.getElementById('credit-table-row');
-  tableBody.innerHTML = '';
-  tableCreditRow.innerHTML = '';
+  const tableBody = document.getElementById("table-body-flowsheet");
+  const tableCreditRow = document.getElementById("credit-table-row");
+  tableBody.innerHTML = "";
+  tableCreditRow.innerHTML = "";
 
   // reset the table
   graph.clear();
   subjects.map((semester) => initGraph(graph, semester));
 
   // initialize the search functionality
-  const searchForm = document.getElementsByName('search-entry')[0];
+  const searchForm = document.getElementsByName("search-entry")[0];
 
-  if (searchForm)
-    searchForm.addEventListener('keyup', (e) => highlightCellByCode(graph));
+  if (searchForm) searchForm.addEventListener("keyup", () => highlightCellByCode(graph));
 
   // get value of maximum table rows
   const maxRows = getMaxTableRowLength(subjects);
@@ -63,7 +62,7 @@ function initTable(subjects) {
             vertex,
             isTrainingSem,
             rowPtr,
-            optionalSetId
+            optionalSetId,
           );
           optionalCreditHours = vertex.vertex.data.creditHours;
         });
@@ -77,15 +76,8 @@ function initTable(subjects) {
       const rowPtr = subject.semester;
 
       // Display training credits without adding them to semester totals.
-      if (subject.type !== TRAINING)
-        creditHours += vertex.vertex.data.creditHours;
-      prevCellPtr = renderVertex(
-        prevCellPtr,
-        ++currentCellPtr,
-        vertex,
-        isTrainingSem,
-        rowPtr
-      );
+      if (subject.type !== TRAINING) creditHours += vertex.vertex.data.creditHours;
+      prevCellPtr = renderVertex(prevCellPtr, ++currentCellPtr, vertex, isTrainingSem, rowPtr);
     });
 
     // render empty spaces ONLY after the summer courses has been loaded as a part
@@ -116,10 +108,10 @@ function initTable(subjects) {
 }
 
 function createSemestersRow(rowId) {
-  const tbody = document.getElementById('table-body-flowsheet');
-  const row = document.createElement('tr');
+  const tbody = document.getElementById("table-body-flowsheet");
+  const row = document.createElement("tr");
 
-  row.className = 'flowsheet-row';
+  row.className = "flowsheet-row";
   row.id = rowId;
   tbody.appendChild(row);
 
@@ -127,11 +119,11 @@ function createSemestersRow(rowId) {
 }
 
 function renderCreditTable(semestersCreditHours) {
-  const row = document.getElementById('credit-table-row');
+  const row = document.getElementById("credit-table-row");
 
   semestersCreditHours.forEach((credit, idx) => {
-    const cell = document.createElement('th');
-    cell.className = 'credit-cell';
+    const cell = document.createElement("th");
+    cell.className = "credit-cell";
     cell.dataset.tableYear = Math.trunc((idx + 2) / 2);
     cell.dataset.tableSemester = idx + 1;
     cell.dataset.semesterCredits = credit;

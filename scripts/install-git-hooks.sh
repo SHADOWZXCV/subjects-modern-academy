@@ -13,4 +13,4 @@ if [[ -z "$current" && -f "$(git rev-parse --git-path hooks/pre-commit)" ]]; the
 fi
 
 git config --local core.hooksPath .githooks
-printf 'Enabled Biome formatting on commit for this checkout.\n'
+printf 'Enabled Oxfmt, Oxlint and Stylelint on commit for this checkout.\n'

@@ -492,10 +492,7 @@ const subjects = [
       subjectName: "Project-2 a",
       creditHours: 3,
       requirements: ["ELCn361"],
-      conditions: [
-        "GPA > 2: 120 Credits/ 123 Credits",
-        "GPA < 2: 128 Credits/ 131 Credits",
-      ],
+      conditions: ["GPA > 2: 120 Credits/ 123 Credits", "GPA < 2: 128 Credits/ 131 Credits"],
     },
   ],
   [
@@ -578,4 +575,3 @@ const subjects = [
   ],
 ];
 ```
-
