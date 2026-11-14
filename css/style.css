@@ -1,6 +1,6 @@
 :root {
   --current-cell-bg: #005bbb;
-  --current-cell--lite-bg: #257ddc59;
+  --current-cell-lite-bg: #257ddc59;
   --normal-cell-bg: #cfcfcf;
   --exclusive-cell-bg: #6d12b7;
   --required-cell-bg: #ffc72c;
@@ -8,6 +8,29 @@
   --opt-cell-abg: #b5b5b53c;
   --opt-cell-dark-bg: #6b6b6b;
   --opt-cell-lite-bg: #b5b5b53c;
+  --white: #fff;
+  --black: #000;
+  --red: red;
+  --blue-faint: #0070f330;
+  --blue-soft: #0071f3b8;
+  --blue: #0070f3;
+  --navy: #002f56;
+  --danger-faint: #f3000030;
+  --danger-soft: #f30000b8;
+  --danger: #f30000;
+  --red-faint: #ff000060;
+  --grey-50: #fefefe;
+  --grey-100: #fbfbfb;
+  --grey-150: #f9f9f9;
+  --grey-200: #eee;
+  --grey-300: #d3d3d3;
+  --grey-350: #d0d0d0;
+  --grey-400: #c4c4c4;
+  --grey-soft: #c3c3c3b8;
+  --disabled-bg: #ced4da;
+  --disabled-text: #6c757d;
+  --shade: #00000049;
+  --ink-muted: #0009;
 }
 
 body {
@@ -86,14 +109,14 @@ table {
 
 .flowsheet-header-cell,
 .flowsheet-subheader-cell {
-  color: white;
-  background: rgb(88, 88, 88);
+  color: var(--white);
+  background: rgb(88 88 88);
 }
 .credit-header-cell {
   padding: 1em;
-  color: white;
-  border: solid 1px rgb(127, 127, 127);
-  background: rgb(88, 88, 88);
+  color: var(--white);
+  border: solid 1px rgb(127 127 127);
+  background: rgb(88 88 88);
   text-align: center;
 }
 
@@ -103,9 +126,9 @@ table {
 }
 
 .credit-cell {
-  color: rgb(88, 88, 88);
+  color: rgb(88 88 88);
   padding: 10px;
-  border: solid 1px rgb(88, 88, 88);
+  border: solid 1px rgb(88 88 88);
 }
 
 .cell[data-subject-id] {
@@ -116,34 +139,34 @@ table {
 #desc-current,
 #current-indicator {
   background: var(--current-cell-bg);
-  color: white;
+  color: var(--white);
 }
 
 .cell[data-current="true"][data-is-training],
 #desc-training,
 #training-indicator {
   background: var(--exclusive-cell-bg);
-  color: white;
+  color: var(--white);
 }
 
 .cell[data-is-training] {
   background: var(--opt-cell-abg);
-  border: solid 2px #d3d3d3;
+  border: solid 2px var(--grey-300);
   visibility: visible;
 }
 
 .cell[data-dependent="true"],
 #desc-dependent,
 #dependent-indicator {
-  background: #002f56;
-  color: white;
+  background: var(--navy);
+  color: var(--white);
 }
 
 .cell[data-required="true"],
 #desc-req,
 #req-indicator {
   background: var(--required-cell-bg);
-  color: black;
+  color: var(--black);
 }
 
 .circle-indicator {
@@ -184,19 +207,19 @@ table {
 
 .cell-gpa_selected {
   background-color: var(--current-cell-bg) !important;
-  color: white !important;
+  color: var(--white) !important;
 }
 
 .cell-header-gpa_selected_second,
 .cell-subheader-gpa_selected_second {
   border: none !important;
-  background-color: red !important;
-  color: white !important;
+  background-color: var(--red) !important;
+  color: var(--white) !important;
 }
 
 .cell-gpa_selected_second {
-  background-color: red !important;
-  color: white !important;
+  background-color: var(--red) !important;
+  color: var(--white) !important;
 }
 
 .cell_gpa:hover:not(
@@ -205,7 +228,7 @@ table {
     .optional_cell_gpa,
     .cell-gpa_selected_second
   ) {
-  background-color: var(--current-cell--lite-bg) !important;
+  background-color: var(--current-cell-lite-bg) !important;
 }
 
 #flowsheet-descr {
@@ -249,16 +272,16 @@ table {
   padding: 7px;
   border-radius: 6px;
   font-size: 16px;
-  background: #fbfbfb;
+  background: var(--grey-100);
   border: 2px solid transparent;
   box-shadow:
-    0 0 0 1px #dddddd,
+    0 0 0 1px #ddd,
     0 2px 4px 0 rgb(0 0 0 / 7%),
     0 1px 1.5px 0 rgb(0 0 0 / 5%);
 }
 
 .header-input:focus {
-  border: 2px solid #000;
+  border: 2px solid var(--black);
   border-radius: 4px;
 }
 
@@ -355,7 +378,7 @@ footer {
   top: 0;
   width: 100%;
   height: 100%;
-  background: #00000049;
+  background: var(--shade);
 }
 
 #subject-info-white {
@@ -364,7 +387,7 @@ footer {
   align-items: end;
   width: 40%;
   height: 100%;
-  background: white;
+  background: var(--white);
 }
 
 #subject-info-main {
@@ -401,7 +424,7 @@ footer {
 #footer-line {
   width: 70%;
   height: 1px;
-  background: #eeeeee;
+  background: var(--grey-200);
   border: none;
   margin-top: 3em;
 }
@@ -414,7 +437,7 @@ footer {
 }
 
 .column * {
-  margin: 0 0 0.5em 0;
+  margin: 0 0 0.5em;
 }
 
 @media (max-width: 880px) {
@@ -481,7 +504,7 @@ footer {
   #desc-training,
   #desc-optional {
     background-color: transparent;
-    color: black;
+    color: var(--black);
     font-size: larger;
     outline: none;
   }
@@ -490,7 +513,7 @@ footer {
     display: block;
     height: 30px;
     width: 30px;
-    background-color: black;
+    background-color: var(--black);
     border-radius: 50%;
     margin-right: 20px;
   }
@@ -514,8 +537,8 @@ footer {
   border-radius: 7px;
   font-weight: 400;
   font-size: 16px;
-  background: #0070f3;
-  color: #fff;
+  background: var(--blue);
+  color: var(--white);
   box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
   transition:
     background-color 0.2s ease,
@@ -524,12 +547,12 @@ footer {
 }
 
 .normal-button:hover {
-  background: #0071f3b8;
+  background: var(--blue-soft);
   box-shadow: 0 6px 20px rgb(93 93 93 / 23%);
 }
 
 #gpa-calculate-text-step-2 {
-  margin: 0 0 0.5em 0;
+  margin: 0 0 0.5em;
   text-decoration: underline;
 }
 
@@ -555,7 +578,7 @@ footer {
 
 .calculate-gpa-btn_on {
   border: none !important;
-  color: #0070f3 !important;
+  color: var(--blue) !important;
 }
 
 #calculate-gpa-btn,
@@ -565,61 +588,58 @@ footer {
 
 #ngpa-feature-button,
 #cgpa-feature-button {
-  background: white;
-  color: #000;
-  border: solid 1px black;
+  background: var(--white);
+  color: var(--black);
+  border: solid 1px var(--black);
 }
 
 #gpa-feature-button:hover {
-  background: #0071f3b8;
+  background: var(--blue-soft);
   box-shadow: 0 6px 20px rgb(93 93 93 / 23%);
 }
 
 #ngpa-feature-button:hover,
 #cgpa-feature-button:hover {
-  background: #ffffff;
-  color: #00000099;
+  background: var(--white);
+  color: var(--ink-muted);
   box-shadow: 0 6px 20px rgb(93 93 93 / 23%);
 }
 
 .gpa-btn_off {
-  background: #0070f3 !important;
+  background: var(--blue) !important;
 }
 
 .gpa-btn_off:hover {
-  background: #0071f3b8 !important;
+  background: var(--blue-soft) !important;
 }
 
 .gpa-btn_on {
-  background: #f30000 !important;
+  background: var(--danger) !important;
 }
 
 .gpa-btn_on:hover {
-  background: #f30000b8 !important;
+  background: var(--danger-soft) !important;
 }
 
 #cgpa-btn:disabled {
-  background-color: #ced4da; /* Light gray, indicating disabled state */
-  color: #6c757d; /* Dark gray for disabled text */
+  background-color: var(--disabled-bg); /* Light gray, indicating disabled state */
+  color: var(--disabled-text); /* Dark gray for disabled text */
   cursor: not-allowed; /* Change cursor to indicate button is disabled */
   box-shadow: none;
 }
 
 .cgpa-btn:hover {
-  background: #c3c3c3b8 !important;
+  background: var(--grey-soft) !important;
 }
 
 #ngpa-calc {
   display: none;
   flex-direction: column;
-  border: solid 2px #c4c4c4;
+  border: solid 2px var(--grey-400);
   border-radius: 10px;
-  background-color: #f9f9f9;
+  background-color: var(--grey-150);
   padding: 1em 1.5em;
   margin: 1em 0;
-}
-
-#ngpa-calc {
   grid-template-columns: 65% 35%;
 }
 
@@ -642,7 +662,7 @@ footer {
   font-weight: bold;
   background: transparent;
   border: none;
-  border-bottom: solid 2px #c4c4c4;
+  border-bottom: solid 2px var(--grey-400);
   width: 70%;
 }
 
@@ -686,7 +706,7 @@ footer {
   padding-bottom: 1em;
   font-size: 16px;
   font-weight: 500;
-  color: #0070f3;
+  color: var(--blue);
   border: none;
   border-radius: 4px;
   background-color: transparent;
@@ -694,7 +714,7 @@ footer {
 }
 
 .hollow-border-button {
-  border: solid 2px #0070f3;
+  border: solid 2px var(--blue);
   padding: 10px 56px;
 }
 
@@ -728,13 +748,13 @@ footer {
   padding: 7px;
   border-radius: 6px;
   font-size: 16px;
-  background: #fefefe;
-  border: solid 2px #d0d0d0;
+  background: var(--grey-50);
+  border: solid 2px var(--grey-350);
 }
 
-/*.gpa-input-small {*/
+/* .gpa-input-small { */
 /*    /* width: 60%; */
-/*}*/
+/* } */
 
 .gpa-select {
   width: fit-content;
@@ -753,7 +773,7 @@ footer {
 } */
 
 #subheader-explain {
-  border: solid 2px #0070f3;
+  border: solid 2px var(--blue);
 }
 
 #old-subheader-explain,
@@ -766,7 +786,7 @@ footer {
 }
 
 #old-subheader-explain {
-  border: solid 2px red;
+  border: solid 2px var(--red);
 }
 
 #subject-explain,
@@ -777,37 +797,37 @@ footer {
 .flowsheet-subheader-cell_gpa_select_second,
 .flowsheet-header-cell_gpa_select_second {
   background: none;
-  border: solid 2px red;
+  border: solid 2px var(--red);
   cursor: pointer;
   font-weight: 600;
   /* border-radius: 4px; */
   font-size: 13px;
   line-height: 20px;
   /* background-color: #9147ff; */
-  color: black;
+  color: var(--black);
   padding: 0 10px;
 }
 
 .flowsheet-subheader-cell_gpa_select,
 .flowsheet-header-cell_gpa_select {
   background: none;
-  border: solid 2px #0070f3;
+  border: solid 2px var(--blue);
   cursor: pointer;
   font-weight: 600;
   /* border-radius: 4px; */
   font-size: 13px;
   line-height: 20px;
   /* background-color: #9147ff; */
-  color: black;
+  color: var(--black);
   padding: 0 10px;
 }
 
 .flowsheet-subheader-explain_first {
-  animation: pulse_explain 1s;
+  animation: pulse-explain 1s;
 }
 
 .flowsheet-subheader-explain_second {
-  animation: pulse_second_explain 1s;
+  animation: pulse-second-explain 1s;
 }
 /* {
     background-color: #f30000b8;
@@ -818,30 +838,30 @@ footer {
 .cell-subheader-gpa_selected,
 .flowsheet-header-cell_gpa_select:hover,
 .cell-header-gpa_selected {
-  background-color: #0071f3b8;
-  color: white;
+  background-color: var(--blue-soft);
+  color: var(--white);
 }
 
 .error-input {
-  border-bottom: solid 3px red;
+  border-bottom: solid 3px var(--red);
 }
 
 .error-input::placeholder {
-  color: #ff000060;
+  color: var(--red-faint);
 }
 
-@keyframes pulse_explain {
+@keyframes pulse-explain {
   0% {
-    background: #0070f330;
+    background: var(--blue-faint);
     transform: scale(1);
   }
   50% {
-    background: #0070f3;
-    color: white;
+    background: var(--blue);
+    color: var(--white);
     transform: scale(0.97);
   }
   70% {
-    background: #0070f330;
+    background: var(--blue-faint);
     transform: scale(1);
   }
   100% {
@@ -850,19 +870,19 @@ footer {
   }
 }
 
-@keyframes pulse_second_explain {
+@keyframes pulse-second-explain {
   0% {
-    background: #f3000030;
-    color: white;
+    background: var(--danger-faint);
+    color: var(--white);
     transform: scale(1);
   }
   50% {
-    background: #f30000;
+    background: var(--danger);
     transform: scale(0.97);
   }
   70% {
-    background: #f3000030;
-    color: white;
+    background: var(--danger-faint);
+    color: var(--white);
     transform: scale(1);
   }
   100% {
