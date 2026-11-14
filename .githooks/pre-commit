@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Runs before every commit: lays out the staged files with Oxfmt and stages
-# the result. scripts/install-git-hooks.sh points git at this folder.
+# Runs before every commit: lays out the staged files with Oxfmt, stages the
+# result, then lints the staged scripts with Oxlint and the staged stylesheets
+# with Stylelint. scripts/install-git-hooks.sh points git at this folder.
 set -euo pipefail
 
 cd "$(git rev-parse --show-toplevel)"
@@ -25,9 +26,26 @@ for file in "${files[@]}"; do
 done
 
 [[ -x node_modules/.bin/oxfmt ]] || {
-  printf 'Oxfmt: run npm install first.\n' >&2
+  printf 'Run npm install first.\n' >&2
   exit 1
 }
 
 node_modules/.bin/oxfmt --no-error-on-unmatched-pattern -- "${files[@]}"
 git add -- "${files[@]}"
+
+scripts=()
+styles=()
+for file in "${files[@]}"; do
+  case "$file" in
+    *.js|*.mjs|*.cjs) scripts+=("$file") ;;
+    *.css) styles+=("$file") ;;
+  esac
+done
+
+# The type-aware rules need the whole program; npm run check runs them.
+if (( ${#scripts[@]} )); then
+  node_modules/.bin/oxlint --deny-warnings -- "${scripts[@]}"
+fi
+if (( ${#styles[@]} )); then
+  node_modules/.bin/stylelint -- "${styles[@]}"
+fi

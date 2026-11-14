@@ -5,6 +5,8 @@
   "description": "The subjects of each Modern Academy engineering department and how they depend on each other.",
   "scripts": {
     "fmt": "oxfmt",
+    "lint": "oxlint --type-aware --deny-warnings && stylelint \"css/**/*.css\"",
+    "check": "oxfmt --check && npm run lint",
     "hooks": "bash scripts/install-git-hooks.sh"
   },
   "devDependencies": {
